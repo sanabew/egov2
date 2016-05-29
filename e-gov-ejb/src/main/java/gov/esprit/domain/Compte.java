@@ -1,11 +1,16 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.Citoyen;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  * Entity implementation class for Entity: Compte
@@ -18,7 +23,7 @@ public class Compte implements Serializable {
 	
 	private int id;
 	private int numero;
-	private LocalDate dateOuverture;
+	private LocalDateTime dateOuverture;
 	private Citoyen proprietaire;
 	private float solde;
 	private List<Transaction>transactions;
@@ -43,11 +48,11 @@ public class Compte implements Serializable {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}   
-	public LocalDate getDateOuverture() {
+	public LocalDateTime getDateOuverture() {
 		return this.dateOuverture;
 	}
 
-	public void setDateOuverture(LocalDate dateOuverture) {
+	public void setDateOuverture(LocalDateTime dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}  
 	@ManyToOne

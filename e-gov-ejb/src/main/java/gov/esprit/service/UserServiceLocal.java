@@ -1,4 +1,4 @@
-package interfaces;
+package gov.esprit.service;
 
 import javax.ejb.Local;
 

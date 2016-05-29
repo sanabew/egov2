@@ -1,9 +1,14 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.Citoyen;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+import java.time.LocalDateTime;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 
 /**
  * Entity implementation class for Entity: Passport
@@ -17,8 +22,8 @@ public class Passeport implements Serializable {
 	
 	private int id;
 	private Citoyen citoyen;
-	private LocalDate dateAttribution;
-	private LocalDate dateExpiration;
+	private LocalDateTime dateAttribution;
+	private LocalDateTime dateExpiration;
 	private static final long serialVersionUID = 1L;
 
 	public Passeport() {
@@ -41,18 +46,18 @@ public class Passeport implements Serializable {
 	public void setCitoyen(Citoyen citoyen) {
 		this.citoyen = citoyen;
 	}   
-	public LocalDate getDateAttribution() {
+	public LocalDateTime getDateAttribution() {
 		return this.dateAttribution;
 	}
 
-	public void setDateAttribution(LocalDate dateAttribution) {
+	public void setDateAttribution(LocalDateTime dateAttribution) {
 		this.dateAttribution = dateAttribution;
 	}   
-	public LocalDate getDateExpiration() {
+	public LocalDateTime getDateExpiration() {
 		return this.dateExpiration;
 	}
 
-	public void setDateExpiration(LocalDate dateExpiration) {
+	public void setDateExpiration(LocalDateTime dateExpiration) {
 		this.dateExpiration = dateExpiration;
 	}
    

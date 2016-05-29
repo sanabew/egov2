@@ -1,8 +1,10 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.TypeTrajet;
 import java.io.Serializable;
 import javax.persistence.*;
+
+import gov.esprit.enums.TypeHoraire;
+import gov.esprit.enums.TypeTrajet;
 
 /**
  * Entity implementation class for Entity: AbonnementTransport

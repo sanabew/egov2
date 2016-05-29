@@ -4,32 +4,35 @@
   <parent>
   	<groupId>tn.esprit.bi</groupId>
   	<artifactId>e-gov</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
+  	<version>${project.version}</version>
   </parent>
 
   <dependencies>
-  <dependency>
+  		<dependency>
+			<groupId>tn.esprit.bi</groupId>
+			<artifactId>e-gov-ejb</artifactId>
+			<type>ejb</type>
+		</dependency>
+ 		
+ 		 <dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.10.Final</version>
 		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.wildfly</groupId>
 			<artifactId>wildfly-ejb-client-bom</artifactId>
 			<version>9.0.0.Alpha1</version>
 			<type>pom</type>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>tn.esprit.bi</groupId>
-			<artifactId>e-gov-ejb</artifactId>
-			<type>ejb</type>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
 		</dependency>
+
   </dependencies>
 
 	<build>
@@ -58,7 +61,4 @@
 			</plugin>
 		</plugins>
 	</build>
-</project>
-  
-  </dependencies>
 </project>

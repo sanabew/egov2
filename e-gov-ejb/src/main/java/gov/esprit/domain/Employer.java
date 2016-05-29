@@ -1,9 +1,10 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.Fonction;
 import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
+
+import gov.esprit.enums.Fonction;
 
 /**
  * Entity implementation class for Entity: Employer

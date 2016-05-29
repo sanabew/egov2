@@ -1,4 +1,4 @@
-package gov.esprit.domain;
+package gov.esprit.enums;
 
 public enum EtatDemande {
 	PERMIS_PRET,
