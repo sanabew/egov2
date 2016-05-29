@@ -1,14 +1,13 @@
 package gov.esprit.domain;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import org.joda.time.LocalDateTime;
 
 import gov.esprit.enums.TypeTransacrion;
 
