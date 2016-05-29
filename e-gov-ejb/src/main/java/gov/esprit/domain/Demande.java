@@ -1,9 +1,18 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.TypeDemande;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.joda.time.LocalDateTime;
+
+import gov.esprit.enums.EtatDemande;
+import gov.esprit.enums.TypeDemande;
 
 /**
  * Entity implementation class for Entity: Demande
@@ -18,7 +27,7 @@ public class Demande implements Serializable {
 	private int id;
 	private TypeDemande type;
 	private EtatDemande etat;
-	private LocalDate date;
+	private LocalDateTime date;
 	private Citoyen citoyen;
 	private static final long serialVersionUID = 1L;
 
@@ -41,11 +50,11 @@ public class Demande implements Serializable {
 	public void setType(TypeDemande type) {
 		this.type = type;
 	}   
-	public LocalDate getDate() {
+	public LocalDateTime getDate() {
 		return this.date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}
 	@ManyToOne

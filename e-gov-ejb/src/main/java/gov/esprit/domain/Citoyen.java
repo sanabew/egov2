@@ -6,6 +6,11 @@ import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.*;
 
+import org.joda.time.LocalDateTime;
+
+import gov.esprit.enums.Civilite;
+import gov.esprit.enums.Sex;
+
 
 
 /**
@@ -21,8 +26,8 @@ public class Citoyen implements Serializable {
 	private Integer id;
 	private String nom;
 	private String prenom;
-	private LocalDate dateNaissance;
-	private LocalDate dateDeces;
+	private LocalDateTime dateNaissance;
+	private LocalDateTime dateDeces;
 	private Sex sex;
 	private Civilite civilite;
 	private String profession;
@@ -65,16 +70,16 @@ public class Citoyen implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public LocalDate getDateNaissance() {
+	public LocalDateTime getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(LocalDate dateNaissance) {
+	public void setDateNaissance(LocalDateTime dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-	public LocalDate getDateDeces() {
+	public LocalDateTime getDateDeces() {
 		return dateDeces;
 	}
-	public void setDateDeces(LocalDate dateDeces) {
+	public void setDateDeces(LocalDateTime dateDeces) {
 		this.dateDeces = dateDeces;
 	}
 	public Sex getSex() {

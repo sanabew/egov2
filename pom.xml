@@ -3,10 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tn.esprit.bi</groupId>
 	<artifactId>e-gov</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>${project.version}</version>
 	<packaging>pom</packaging>
 	<properties>
-
+		<project.version>1.0.0-SNAPSHOT</project.version>
+		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -34,20 +35,20 @@
 			<dependency>
 				<groupId>tn.esprit.bi</groupId>
 				<artifactId>e-gov-ejb</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${project.version}</version>
 				<type>ejb</type>
 			</dependency>
             <dependency>
 				<groupId>tn.esprit.bi</groupId>
 				<artifactId>e-gov-client</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${project.version}</version>
 				<type>ejb</type>
 			</dependency>
 
 			<dependency>
 				<groupId>tn.esprit.bi</groupId>
 				<artifactId>e-gov-web</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${project.version}</version>
 				<type>war</type>
 			</dependency>
 
@@ -64,24 +65,36 @@
 				<artifactId>primefaces</artifactId>
 				<version>${primefaces.version}</version>
 			</dependency>
+			
+			<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.7</version>
+		</dependency>
 
 		</dependencies>
 	</dependencyManagement>
 
 
-	<distributionManagement>
-		<repository>
-			<id>deployment</id>
-			<name>releases</name>
-			<url>http://git.esprit.tn:8081/nexus/content/repositories/releases/</url>
-		</repository>
+<!-- 	<distributionManagement> -->
+<!-- 		<repository> -->
+<!-- 			<id>deployment</id> -->
+<!-- 			<name>releases</name> -->
+<!-- 			<url>http://git.esprit.tn:8081/nexus/content/repositories/releases/</url> -->
+<!-- 		</repository> -->
 
-		<snapshotRepository>
-			<id>deployment</id>
-			<name>snapshots</name>
-			<url>http://git.esprit.tn:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
+<!-- 		<snapshotRepository> -->
+<!-- 			<id>deployment</id> -->
+<!-- 			<name>snapshots</name> -->
+<!-- 			<url>http://git.esprit.tn:8081/nexus/content/repositories/snapshots/</url> -->
+<!-- 		</snapshotRepository> -->
+<!-- 	</distributionManagement> -->
 	<build>
 		<pluginManagement>
 			<plugins>

@@ -1,9 +1,15 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.Citoyen;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.joda.time.LocalDateTime;
 
 /**
  * Entity implementation class for Entity: SanctionPenale
@@ -16,7 +22,7 @@ public class SanctionPenale implements Serializable {
 	   
 	private int id;
 	private Citoyen citoyen;
-	private LocalDate date;
+	private LocalDateTime date;
 	private int amende;
 	private int dureePrison;
 	private static final long serialVersionUID = 1L;
@@ -42,11 +48,11 @@ public class SanctionPenale implements Serializable {
 	public void setCitoyen(Citoyen citoyen) {
 		this.citoyen = citoyen;
 	}   
-	public LocalDate getDate() {
+	public LocalDateTime getDate() {
 		return this.date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDateTime date) {
 		this.date = date;
 	}   
 	public int getAmende() {

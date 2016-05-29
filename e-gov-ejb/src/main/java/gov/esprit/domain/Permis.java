@@ -1,10 +1,17 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.Citoyen;
-import gov.esprit.domain.TypePermis;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.joda.time.LocalDateTime;
+
+import gov.esprit.enums.TypePermis;
 
 /**
  * Entity implementation class for Entity: Permis
@@ -18,8 +25,8 @@ public class Permis implements Serializable {
 
 	private int id;
 	private TypePermis type;
-	private LocalDate dateAttribution;
-	private LocalDate dateExpiration;
+	private LocalDateTime dateAttribution;
+	private LocalDateTime dateExpiration;
 	private Citoyen citoyen;
 	private static final long serialVersionUID = 1L;
 
@@ -42,18 +49,18 @@ public class Permis implements Serializable {
 	public void setType(TypePermis type) {
 		this.type = type;
 	}   
-	public LocalDate getDateAttribution() {
+	public LocalDateTime getDateAttribution() {
 		return this.dateAttribution;
 	}
 
-	public void setDateAttribution(LocalDate dateAttribution) {
+	public void setDateAttribution(LocalDateTime dateAttribution) {
 		this.dateAttribution = dateAttribution;
 	}   
-	public LocalDate getDateExpiration() {
+	public LocalDateTime getDateExpiration() {
 		return this.dateExpiration;
 	}
 
-	public void setDateExpiration(LocalDate dateExpiration) {
+	public void setDateExpiration(LocalDateTime dateExpiration) {
 		this.dateExpiration = dateExpiration;
 	}   
 	@ManyToOne

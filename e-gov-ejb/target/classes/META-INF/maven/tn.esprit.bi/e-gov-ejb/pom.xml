@@ -4,18 +4,29 @@
 	<parent>
 		<groupId>tn.esprit.bi</groupId>
 		<artifactId>e-gov</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${project.version}</version>
 	</parent>
 	<artifactId>e-gov-ejb</artifactId>
 	<packaging>ejb</packaging>
 
-
-
 	<dependencies>
+	
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

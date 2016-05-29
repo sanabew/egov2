@@ -1,10 +1,15 @@
 package gov.esprit.domain;
 
-import gov.esprit.domain.Citoyen;
 import java.io.Serializable;
-import java.lang.String;
-import java.time.LocalDate;
-import javax.persistence.*;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.joda.time.LocalDateTime;
 
 /**
  * Entity implementation class for Entity: Vehicule
@@ -21,7 +26,7 @@ public class Vehicule implements Serializable {
 	private String marque;
 	private String modele;
 	private String carteGrise;
-	private LocalDate dateMiseEnCirculation;
+	private LocalDateTime dateMiseEnCirculation;
 	private Citoyen proprietaire;
 	private static final long serialVersionUID = 1L;
 
@@ -65,11 +70,11 @@ public class Vehicule implements Serializable {
 	public void setCarteGrise(String carteGrise) {
 		this.carteGrise = carteGrise;
 	}   
-	public LocalDate getDateMiseEnCirculation() {
+	public LocalDateTime getDateMiseEnCirculation() {
 		return this.dateMiseEnCirculation;
 	}
 
-	public void setDateMiseEnCirculation(LocalDate dateMiseEnCirculation) {
+	public void setDateMiseEnCirculation(LocalDateTime dateMiseEnCirculation) {
 		this.dateMiseEnCirculation = dateMiseEnCirculation;
 	}   
 	
