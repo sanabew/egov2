@@ -5,9 +5,8 @@ import java.time.LocalDateTime;
 import gov.esprit.domain.Citoyen;
 import gov.esprit.enums.Gouvernerat;
 
-/*
- * @non-javadoc:
- * this class is not an entity.
+/* (non-Javadoc)
+ * This is not an entity.
  */
 /**
  * {@link CinInfo}.
@@ -41,7 +40,7 @@ public class CinInfo {
 	/**
 	 * the cin digital identity identifier.
 	 */
-	private Integer referenceEmpreinte;
+	private String referenceEmpreinte;
 	
 	/**
 	 * @return the dateExpedition
@@ -94,13 +93,13 @@ public class CinInfo {
 	/**
 	 * @return the referenceEmpreinte
 	 */
-	public Integer getReferenceEmpreinte() {
+	public String getReferenceEmpreinte() {
 		return referenceEmpreinte;
 	}
 	/**
 	 * @param referenceEmpreinte the referenceEmpreinte to set
 	 */
-	public void setReferenceEmpreinte(Integer referenceEmpreinte) {
+	public void setReferenceEmpreinte(String referenceEmpreinte) {
 		this.referenceEmpreinte = referenceEmpreinte;
 	}
 
