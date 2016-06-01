@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,8 +25,8 @@ import gov.esprit.enums.Sex;
 
 public class Citoyen implements Serializable {
 
-	   
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nom;
 	private String prenom;
@@ -46,14 +47,16 @@ public class Citoyen implements Serializable {
 	private List<Compte>comptes;
 	private List<Demande>demandes;
 	private List<AbonnementTransport> abonnementTransports;
+	
+	@Column(unique=true, length=8)
+	private String cin;
 
 	private static final long serialVersionUID = 1L;
 
 	public Citoyen() {
 		super();
 	}  
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -180,7 +183,17 @@ public class Citoyen implements Serializable {
 		this.demandes = demandes;
 	}
 	
-	
-	
-   
+	/**
+	 * @return the cin
+	 */
+	public String getCin() {
+		return cin;
+	}
+
+	/**
+	 * @param cin the cin to set
+	 */
+	public void setCin(String cin) {
+		this.cin = cin;
+	}
 }
