@@ -1,4 +1,4 @@
-package gov.esprit.service;
+package gov.esprit.service.user;
 
 import javax.ejb.Local;
 
