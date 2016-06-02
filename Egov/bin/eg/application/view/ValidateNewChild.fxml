@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<AnchorPane prefHeight="354.0" prefWidth="439.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.application.view.ValidateNewChildController">
+   <children>
+    <Pane layoutX="40.0" layoutY="15.0" prefHeight="360.0" prefWidth="528.0">
+      <children>
+        <Button id="submit_add_child" fx:id="add_child" layoutX="389.0" layoutY="312.0" mnemonicParsing="false" text="Submit" />
+        <TextField id="cin_conjointe" fx:id="cin_conjointe_id" layoutX="247.0" layoutY="156.0" prefWidth="200.0" promptText="Cin Conjointe" />
+        <TextField id="wedding_contract" fx:id="wedding_contract_id" layoutX="246.0" layoutY="198.0" prefWidth="200.0" promptText="Wedding contract" />
+        <TextField id="cin_conjoint" fx:id="cin_conjoint_id" layoutX="246.0" layoutY="107.0" prefWidth="200.0" promptText="Cin Conjoint" />
+        <Label layoutX="94.0" layoutY="113.0" text="Cin Conjoint" />
+        <Label layoutX="94.0" layoutY="162.0" text="Cin Conjointe" />
+        <Label layoutX="94.0" layoutY="212.0" text="Wedding contract" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>
