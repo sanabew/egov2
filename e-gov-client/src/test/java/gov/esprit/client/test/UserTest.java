@@ -8,7 +8,7 @@ import javax.naming.NamingException;
 import org.junit.Test;
 
 import gov.esprit.domain.Citoyen;
-import gov.esprit.service.UserServiceRemote;
+import gov.esprit.service.user.UserServiceRemote;
 
 public class UserTest {
 
