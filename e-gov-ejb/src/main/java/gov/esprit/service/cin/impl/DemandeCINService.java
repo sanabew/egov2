@@ -8,6 +8,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import gov.esprit.business.CinInfo;
 import gov.esprit.domain.Citoyen;
@@ -107,5 +108,18 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 		// recuperer demande depuis refernces
 		return demande.getEtat();
 	}
-
+	@Override
+	public CinInfo findCitoyenByCIN(Citoyen Citoyen) {
+		CinInfo CinInfo = null;
+		try {
+			Query queryfindCitoyenByCIN = em.createQuery(
+				    "SELECT OBJECT(c) FROM CinInfo c WHERE c.Citoyen = :Citoyen"
+				);
+			queryfindCitoyenByCIN.setParameter("Citoyen", Citoyen);
+			CinInfo = (CinInfo) queryfindCitoyenByCIN.getSingleResult();
+			return CinInfo; 
+		} catch (Exception e) {
+		}
+		return CinInfo;
+	}
 }

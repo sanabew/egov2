@@ -52,4 +52,11 @@ public interface DemandeCINServiceLocal {
 	 * @throws EgovException
 	 */
 	public EtatDemande getEtat(Demande demande) throws EgovException;
+	/**
+	 * 
+	 * @param Citoyen
+	 * @return
+	 * @throws EgovException
+	 */
+	public CinInfo findCitoyenByCIN(Citoyen Citoyen)throws EgovException;
 }
