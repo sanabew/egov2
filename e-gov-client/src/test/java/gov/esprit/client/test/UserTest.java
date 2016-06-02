@@ -19,7 +19,7 @@ public class UserTest {
 			.lookup("e-gov-ear/e-gov-ejb/UserService!gov.esprit.service.UserServiceRemote");
 
 		Citoyen user = new Citoyen();
-		user.setNom("test");
+		user.setNom("test22");
 		proxy.addUser(user);
 			
 		assertEquals(1, proxy.findAll().size());
