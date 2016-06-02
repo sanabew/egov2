@@ -1,4 +1,4 @@
-package gov.esprit.service.impl;
+package gov.esprit.service.user.impl;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 
 import gov.esprit.domain.Citoyen;
-import gov.esprit.service.UserServiceLocal;
-import gov.esprit.service.UserServiceRemote;
+import gov.esprit.service.user.UserServiceLocal;
+import gov.esprit.service.user.UserServiceRemote;
 
 /**
  * Session Bean implementation class UserService
