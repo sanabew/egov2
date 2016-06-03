@@ -87,13 +87,16 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 		
 		// get the cin proprio
 		Citoyen citoyen = demande.getCitoyen();	
-		cinInfo.setProprietaire(citoyen);
 		
 		cinInfo.setDateExpedition(LocalDateTime.now());
 		
 		// generate cin identifier
 		String cin = Identifier.generate(citoyen.getId());
 		cinInfo.setNumero(Integer.valueOf(cin));
+		
+		// accord cin reference to the citoyen
+		citoyen.setCin(cin);
+		cinInfo.setProprietaire(citoyen);
 		
 		cinInfo.setReferenceEmpreinte(UUID.randomUUID().toString());
 		
@@ -107,19 +110,6 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 	public EtatDemande getEtat(Demande demande) throws EgovException {
 		// recuperer demande depuis refernces
 		return demande.getEtat();
-	}
-	@Override
-	public CinInfo findCitoyenByCIN(Citoyen Citoyen) {
-		CinInfo CinInfo = null;
-		try {
-			Query queryfindCitoyenByCIN = em.createQuery(
-				    "SELECT OBJECT(c) FROM CinInfo c WHERE c.Citoyen = :Citoyen"
-				);
-			queryfindCitoyenByCIN.setParameter("Citoyen", Citoyen);
-			CinInfo = (CinInfo) queryfindCitoyenByCIN.getSingleResult();
-			return CinInfo; 
-		} catch (Exception e) {
-		}
-		return CinInfo;
-	}
+	}	
+
 }

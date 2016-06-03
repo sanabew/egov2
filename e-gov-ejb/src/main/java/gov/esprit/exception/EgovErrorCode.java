@@ -11,7 +11,10 @@ public enum EgovErrorCode {
 
 	UNKOWN_ERROR_CODE("0.0"),
 	
-	DOES_NOT_EXIST_ITEM("0.1");
+	DOES_NOT_EXIST_ITEM("0.1"),
+	
+	INVALID_ITEM("0.3");
+	
 	
 	private String errorCode;
 
