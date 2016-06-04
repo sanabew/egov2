@@ -8,6 +8,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import gov.esprit.business.CinInfo;
 import gov.esprit.domain.Citoyen;
@@ -86,13 +87,16 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 		
 		// get the cin proprio
 		Citoyen citoyen = demande.getCitoyen();	
-		cinInfo.setProprietaire(citoyen);
 		
 		cinInfo.setDateExpedition(LocalDateTime.now());
 		
 		// generate cin identifier
 		String cin = Identifier.generate(citoyen.getId());
 		cinInfo.setNumero(Integer.valueOf(cin));
+		
+		// accord cin reference to the citoyen
+		citoyen.setCin(cin);
+		cinInfo.setProprietaire(citoyen);
 		
 		cinInfo.setReferenceEmpreinte(UUID.randomUUID().toString());
 		
@@ -106,6 +110,6 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 	public EtatDemande getEtat(Demande demande) throws EgovException {
 		// recuperer demande depuis refernces
 		return demande.getEtat();
-	}
+	}	
 
 }
