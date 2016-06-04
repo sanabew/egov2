@@ -25,8 +25,7 @@ import gov.esprit.enums.Sex;
 
 public class Citoyen implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer id;
 	private String nom;
 	private String prenom;
@@ -56,7 +55,8 @@ public class Citoyen implements Serializable {
 	public Citoyen() {
 		super();
 	}  
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}

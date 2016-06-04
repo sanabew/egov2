@@ -1,27 +1,19 @@
 package gov.esprit.service.poste.impl;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
-import gov.esprit.business.CinInfo;
 import gov.esprit.domain.Citoyen;
 import gov.esprit.domain.Compte;
-import gov.esprit.domain.Demande;
 import gov.esprit.domain.Transaction;
-import gov.esprit.enums.EtatDemande;
-import gov.esprit.enums.Gouvernerat;
 import gov.esprit.enums.TypeTransacrion;
 import gov.esprit.exception.EgovErrorCode;
 import gov.esprit.exception.EgovException;
-import gov.esprit.service.cin.DemandeCINServiceLocal;
 import gov.esprit.service.citoyen.CitoyenServiceLocal;
 import gov.esprit.service.poste.PosteServiceLocal;
 import gov.esprit.service.poste.PosteServiceRemote;
@@ -68,7 +60,7 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 		transaction.setType(type);
 		transaction.setCompte(compte);
 		transaction.setDate(date);
-		if (cin==compte.getProprietaire().getCin()){
+		if (cin.equals(compte.getProprietaire().getCin())){
 			
 			if(type==TypeTransacrion.CREDIT){
 				solde = solde+montant;
@@ -80,10 +72,11 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 					solde = solde-montant;
 					compte.setSolde(solde);
 					entityManager.persist(transaction);
+					entityManager.persist(compte);
 					return true;
 					
 				}else{
-					throw new EgovException(EgovErrorCode.INVALID_ITEM, "_MONTANT_NON_AUTHORISE: ");
+					throw new EgovException(EgovErrorCode.INVALID_ITEM, "_MONTANT_NON_AUTHORISE");
 				}
 			}
 		}else{
@@ -96,10 +89,9 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 
 	public List<Transaction> extraireReleve(int numeroCompte) {
 		
-		String jpql = "select t from Transaction t  where t.compte.numero=:numeroCompte";
-		Query query = entityManager.createQuery(jpql);
+
+		Query query = entityManager.createQuery("select t from Transaction t  where t.compte.numero=:numeroCompte");
 		query.setParameter("numeroCompte", numeroCompte);
-		
 		return query.getResultList();
 	}
 	
@@ -110,19 +102,16 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 		if(citoyen==null){
 			throw new EgovException(EgovErrorCode.INVALID_ITEM, "_CIN: " + cin);
 		}
-			
 		Compte compte = new Compte();
 		compte.setProprietaire(citoyen);
 		compte.setSolde(0);
 		compte.setNumero(Integer.valueOf(citoyen.getCin()));
-		
 		entityManager.persist(compte);
-		
-		
 	}
 	
 	
 	public List<Compte> findAll() {
+		
 		Query query = entityManager.createNativeQuery("select * from Compte");
 		return query.getResultList();
 	}

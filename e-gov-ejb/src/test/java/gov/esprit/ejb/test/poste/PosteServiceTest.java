@@ -22,6 +22,8 @@ public class PosteServiceTest {
 			PosteServiceLocal posteService = (PosteServiceLocal) context
 				.lookup("e-gov-ear/e-gov-ejb/PosteService!gov.esprit.service.PosteServiceLocal");
 			
+			
+			
 			 posteService.ouvrirCompte("CIN_TEST");
 			 assertEquals(1, posteService.findAll().size());
 			 
