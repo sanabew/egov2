@@ -2,6 +2,7 @@ package gov.esprit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Facture implements Serializable {
 	
 	private int id;
 	private int num;
-	private LocalDateTime date;
+	private Date date;
 	private int montant;
 	private EtatFacture etat;
 	private TypeFacture type;
@@ -38,7 +39,7 @@ public class Facture implements Serializable {
 		super();
 	}  
 	
-	public Facture(int num, LocalDateTime date, int montant, EtatFacture etat, TypeFacture type) {
+	public Facture(int num, Date date, int montant, EtatFacture etat, TypeFacture type) {
 		super();
 		this.num = num;
 		this.date = date;
@@ -62,10 +63,10 @@ public class Facture implements Serializable {
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 	public int getMontant() {

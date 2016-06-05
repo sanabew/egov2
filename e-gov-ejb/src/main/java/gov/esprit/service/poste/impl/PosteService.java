@@ -1,6 +1,8 @@
 package gov.esprit.service.poste.impl;
 
 import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -52,7 +54,7 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 	public boolean effectuerTransaction(int numeroCompte, float montant, String cin, TypeTransacrion type) throws EgovException{
 		
 		float solde;
-		LocalDateTime date = LocalDateTime.now();
+		Date date = Calendar.getInstance().getTime();
 		Compte compte = rechercherCompteParNum(numeroCompte);
 		solde=compte.getSolde();
 		Transaction transaction = new Transaction();

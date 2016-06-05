@@ -1,8 +1,7 @@
 package gov.esprit.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,9 +21,10 @@ public class SanctionPenale implements Serializable {
 	   
 	private int id;
 	private Citoyen citoyen;
-	private LocalDateTime date;
+	private Date date;
 	private int amende;
 	private int dureePrison;
+	private String motif;
 	private static final long serialVersionUID = 1L;
 
 	public SanctionPenale() {
@@ -48,11 +48,11 @@ public class SanctionPenale implements Serializable {
 	public void setCitoyen(Citoyen citoyen) {
 		this.citoyen = citoyen;
 	}   
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return this.date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}   
 	public int getAmende() {
@@ -69,5 +69,13 @@ public class SanctionPenale implements Serializable {
 	public void setDureePrison(int dureePrison) {
 		this.dureePrison = dureePrison;
 	}
+	public String getMotif() {
+		return motif;
+	}
+	public void setMotif(String motif) {
+		this.motif = motif;
+	}
+	
+	
    
 }
