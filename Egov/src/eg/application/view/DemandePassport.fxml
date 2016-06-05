@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.DemandePassportController">
+  <children>
+    <Pane layoutX="50.0" layoutY="14.0" prefHeight="402.0" prefWidth="512.0">
+      <children>
+        <Label layoutX="228.0" layoutY="22.0" text="Demande Passport" />
+        <Label layoutX="109.0" layoutY="60.0" text="N° CIN" />
+        <TextField fx:id="nom" layoutX="228.0" layoutY="54.0" prefWidth="200.0" promptText="CIN" text="" />
+        <Button fx:id="verifier" layoutX="251.0" layoutY="103.0" mnemonicParsing="false" prefWidth="105.0" text="Verifier" />
+        <Button fx:id="retour" layoutX="393.0" layoutY="20.0" mnemonicParsing="false" prefWidth="105.0" text="Retour" />
+        <Label layoutX="134.0" layoutY="162.0" text="Demande Joint" />
+        <Button fx:id="deposer_la_demande" layoutX="202.0" layoutY="342.0" mnemonicParsing="false" prefWidth="165.0" text="Deposer La Demande" />
+        <CheckBox fx:id="att_detravail" layoutX="174.0" layoutY="191.0" mnemonicParsing="false" text="Attestaion de travail" />
+        <CheckBox fx:id="att_dinscription" layoutX="174.0" layoutY="219.0" mnemonicParsing="false" text="Attestation d'inscription Etudiant" />
+        <CheckBox fx:id="photo" layoutX="175.0" layoutY="251.0" mnemonicParsing="false" text="Photo D'identité" />
+        <CheckBox id="photo" fx:id="timbre_fiscale" layoutX="175.0" layoutY="290.0" mnemonicParsing="false" prefWidth="111.0" text="Timbre Fiscale" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

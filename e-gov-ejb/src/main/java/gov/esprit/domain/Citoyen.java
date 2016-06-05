@@ -2,10 +2,13 @@ package gov.esprit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,8 +33,8 @@ public class Citoyen implements Serializable {
 	private Integer id;
 	private String nom;
 	private String prenom;
-	private LocalDateTime dateNaissance;
-	private LocalDateTime dateDeces;
+	private Date dateNaissance;
+	private Date dateDeces;
 	private Sex sex;
 	private Civilite civilite;
 	private String profession;
@@ -78,16 +81,16 @@ public class Citoyen implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public LocalDateTime getDateNaissance() {
+	public Date getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(LocalDateTime dateNaissance) {
-		this.dateNaissance = dateNaissance;
+	public void setDateNaissance(Date date) {
+		this.dateNaissance = date;
 	}
-	public LocalDateTime getDateDeces() {
+	public Date getDateDeces() {
 		return dateDeces;
 	}
-	public void setDateDeces(LocalDateTime dateDeces) {
+	public void setDateDeces(Date dateDeces) {
 		this.dateDeces = dateDeces;
 	}
 	public Sex getSex() {
@@ -199,6 +202,7 @@ public class Citoyen implements Serializable {
 		this.cin = cin;
 	}
 	
+	@Enumerated(EnumType.STRING)
 	public Gouvernerat getGouvernerat() {
 		return gouvernerat;
 	}

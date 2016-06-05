@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.DemandeCinController">
+  <children>
+    <Pane layoutX="50.0" layoutY="14.0" prefHeight="454.0" prefWidth="512.0">
+      <children>
+        <Label layoutX="228.0" layoutY="22.0" text="Demande CIN" />
+        <Label layoutX="109.0" layoutY="60.0" text="Nom" />
+        <Label layoutX="109.0" layoutY="85.0" text="Prenom" />
+        <Label layoutX="109.0" layoutY="115.0" prefWidth="105.0" text="Date De Naissance" />
+        <Label layoutX="109.0" layoutY="143.0" text="Gouvernerat" />
+        <TextField fx:id="nom" layoutX="228.0" layoutY="54.0" prefWidth="200.0" promptText="Nom" text="" />
+        <TextField fx:id="date_de_naissance" layoutX="228.0" layoutY="109.0" prefWidth="200.0" promptText="12.01.2000" text="" />
+        <TextField fx:id="prenom" layoutX="228.0" layoutY="79.0" prefWidth="200.0" promptText="Prenom" />
+        <TextField fx:id="gouvernerat" layoutX="228.0" layoutY="140.0" prefWidth="200.0" promptText="Gouvernerat" />
+        <Button fx:id="verifier" layoutX="265.0" layoutY="181.0" mnemonicParsing="false" prefWidth="105.0" text="Verifier" />
+        <Button fx:id="retour" layoutX="393.0" layoutY="20.0" mnemonicParsing="false" prefWidth="105.0" text="Retour" />
+        <Label layoutX="156.0" layoutY="236.0" text="Demande Joint" />
+        <Button fx:id="deposer_la_demande" layoutX="214.0" layoutY="384.0" mnemonicParsing="false" prefWidth="165.0" text="Deposer La Demande" />
+        <CheckBox fx:id="att_detravail" layoutX="177.0" layoutY="282.0" mnemonicParsing="false" text="Attestaion de travail" />
+        <CheckBox fx:id="att_dinscription" layoutX="177.0" layoutY="311.0" mnemonicParsing="false" text="Attestation d'inscription Etudiant" />
+        <CheckBox fx:id="photo" layoutX="175.0" layoutY="343.0" mnemonicParsing="false" text="Photo D'identité" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

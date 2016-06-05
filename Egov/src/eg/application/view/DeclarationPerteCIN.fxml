@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.DeclarationPerteCINController">
+  <children>
+    <Pane layoutX="91.0" layoutY="56.0" prefHeight="249.0" prefWidth="418.0">
+      <children>
+        <Label layoutX="135.0" layoutY="29.0" prefWidth="158.0" text="Declaration Perte CIN" />
+        <Button fx:id="declarer" layoutX="166.0" layoutY="175.0" mnemonicParsing="false" prefWidth="127.0" text="Déclarer" />
+        <Label layoutX="44.0" layoutY="118.0" minHeight="6.9609375" prefHeight="20.9609375" text="N° CIN" />
+        <TextField id="" fx:id="num_cin" layoutX="109.0" layoutY="118.0" prefWidth="200.0" promptText="N° CIN" />
+        <Button id="declarer" fx:id="retour" layoutX="291.0" layoutY="8.0" mnemonicParsing="false" prefWidth="127.0" text="Retour" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

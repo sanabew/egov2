@@ -14,6 +14,16 @@
 				<artifactId>e-gov-ejb</artifactId>
 				<type>ejb</type>
 	</dependency>
+	<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.wildfly</groupId>
+			<artifactId>wildfly-ejb-client-bom</artifactId>
+			<version>9.0.0.Alpha1</version>
+			<type>pom</type>
+		</dependency>
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
