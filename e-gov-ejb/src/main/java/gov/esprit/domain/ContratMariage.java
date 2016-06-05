@@ -2,6 +2,7 @@ package gov.esprit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,10 +21,10 @@ public class ContratMariage implements Serializable {
 
 	
 	private int id;
-	private LocalDateTime date;
+	private Date date;
 	private Citoyen mari;
 	private Citoyen mariee;
-	private LocalDateTime dateDivorce;
+	private Date dateDivorce;
 	private static final long serialVersionUID = 1L;
 
 	public ContratMariage() {
@@ -38,11 +39,11 @@ public class ContratMariage implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return this.date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}  
 	@OneToOne
@@ -61,10 +62,10 @@ public class ContratMariage implements Serializable {
 	public void setMariee(Citoyen mariee) {
 		this.mariee = mariee;
 	}
-	public LocalDateTime getDateDivorce() {
+	public Date getDateDivorce() {
 		return dateDivorce;
 	}
-	public void setDateDivorce(LocalDateTime dateDivorce) {
+	public void setDateDivorce(Date dateDivorce) {
 		this.dateDivorce = dateDivorce;
 	}
 	

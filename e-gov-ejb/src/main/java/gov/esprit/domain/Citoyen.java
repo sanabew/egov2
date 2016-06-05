@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import gov.esprit.enums.Civilite;
+import gov.esprit.enums.Gouvernerat;
 import gov.esprit.enums.Sex;
 
 
@@ -25,8 +26,7 @@ import gov.esprit.enums.Sex;
 
 public class Citoyen implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer id;
 	private String nom;
 	private String prenom;
@@ -38,6 +38,7 @@ public class Citoyen implements Serializable {
 	private String adresse;
 	private Citoyen pere;
 	private Citoyen mere;
+	private Gouvernerat gouvernerat;
 	
 	private List<Permis> permis;
 	private Passeport passeport;
@@ -56,7 +57,8 @@ public class Citoyen implements Serializable {
 	public Citoyen() {
 		super();
 	}  
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}
@@ -195,5 +197,12 @@ public class Citoyen implements Serializable {
 	 */
 	public void setCin(String cin) {
 		this.cin = cin;
+	}
+	
+	public Gouvernerat getGouvernerat() {
+		return gouvernerat;
+	}
+	public void setGouvernerat(Gouvernerat gouvernerat) {
+		this.gouvernerat = gouvernerat;
 	}
 }

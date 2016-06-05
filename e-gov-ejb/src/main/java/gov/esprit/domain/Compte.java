@@ -71,7 +71,7 @@ public class Compte implements Serializable {
 	public void setSolde(float solde) {
 		this.solde = solde;
 	}
-	@OneToMany
+	@OneToMany(mappedBy="compte")
 	public List<Transaction> getTransactions() {
 		return transactions;
 	}

@@ -2,6 +2,7 @@ package gov.esprit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,7 +27,7 @@ public class Vehicule implements Serializable {
 	private String marque;
 	private String modele;
 	private String carteGrise;
-	private LocalDateTime dateMiseEnCirculation;
+	private Date dateMiseEnCirculation;
 	private Citoyen proprietaire;
 	private static final long serialVersionUID = 1L;
 
@@ -70,11 +71,11 @@ public class Vehicule implements Serializable {
 	public void setCarteGrise(String carteGrise) {
 		this.carteGrise = carteGrise;
 	}   
-	public LocalDateTime getDateMiseEnCirculation() {
+	public Date getDateMiseEnCirculation() {
 		return this.dateMiseEnCirculation;
 	}
 
-	public void setDateMiseEnCirculation(LocalDateTime dateMiseEnCirculation) {
+	public void setDateMiseEnCirculation(Date dateMiseEnCirculation) {
 		this.dateMiseEnCirculation = dateMiseEnCirculation;
 	}   
 	
