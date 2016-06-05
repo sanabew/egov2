@@ -2,10 +2,13 @@ package gov.esprit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import gov.esprit.enums.Civilite;
+import gov.esprit.enums.Gouvernerat;
 import gov.esprit.enums.Sex;
 
 
@@ -25,19 +29,19 @@ import gov.esprit.enums.Sex;
 
 public class Citoyen implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Integer id;
 	private String nom;
 	private String prenom;
-	private LocalDateTime dateNaissance;
-	private LocalDateTime dateDeces;
+	private Date dateNaissance;
+	private Date dateDeces;
 	private Sex sex;
 	private Civilite civilite;
 	private String profession;
 	private String adresse;
 	private Citoyen pere;
 	private Citoyen mere;
+	private Gouvernerat gouvernerat;
 	
 	private List<Permis> permis;
 	private Passeport passeport;
@@ -56,7 +60,8 @@ public class Citoyen implements Serializable {
 	public Citoyen() {
 		super();
 	}  
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Integer getId() {
 		return this.id;
 	}
@@ -76,16 +81,16 @@ public class Citoyen implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public LocalDateTime getDateNaissance() {
+	public Date getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(LocalDateTime dateNaissance) {
-		this.dateNaissance = dateNaissance;
+	public void setDateNaissance(Date date) {
+		this.dateNaissance = date;
 	}
-	public LocalDateTime getDateDeces() {
+	public Date getDateDeces() {
 		return dateDeces;
 	}
-	public void setDateDeces(LocalDateTime dateDeces) {
+	public void setDateDeces(Date dateDeces) {
 		this.dateDeces = dateDeces;
 	}
 	public Sex getSex() {
@@ -195,5 +200,13 @@ public class Citoyen implements Serializable {
 	 */
 	public void setCin(String cin) {
 		this.cin = cin;
+	}
+	
+	@Enumerated(EnumType.STRING)
+	public Gouvernerat getGouvernerat() {
+		return gouvernerat;
+	}
+	public void setGouvernerat(Gouvernerat gouvernerat) {
+		this.gouvernerat = gouvernerat;
 	}
 }

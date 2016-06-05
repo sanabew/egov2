@@ -1,8 +1,11 @@
 package gov.esprit.service.cin;
 
+import java.util.Date;
+
 import javax.ejb.Local;
 
 import gov.esprit.business.CinInfo;
+import gov.esprit.business.TraiterDemandeInfo;
 import gov.esprit.domain.Citoyen;
 import gov.esprit.domain.Demande;
 import gov.esprit.enums.EtatDemande;
@@ -20,15 +23,18 @@ public interface DemandeCINServiceLocal {
 	/**
 	 * Demander a avoir une cin.
 	 * 
-	 * @param citoyen
+	 * @param nom
+	 * @param prenom
+	 * @param date
+	 * @param isInscrit
 	 * @param isExtrait
-	 * @param isResidanceProof
+	 * @param isResidenceProof
 	 * @param gouvernerat
-	 * @return {@link CinInfo}
-	 * @throws EgovException 
+	 * 
+	 * @throws EgovException
 	 */
-	public void ajouter(Citoyen citoyen, boolean isExtrait, boolean isResidanceProof, Gouvernerat gouvernerat) throws EgovException;
-
+	public void ajouter(String nom, String prenom, Date date, boolean isInscrit, boolean isExtrait, boolean isResidenceProof, boolean isTravailProof, Gouvernerat gouvernerat)
+			throws EgovException;
 	/**
 	 * Traiter une demande d'obtention d'une cin.
 	 * 
@@ -37,20 +43,6 @@ public interface DemandeCINServiceLocal {
 	 * @return
 	 * @throws EgovException
 	 */
-	public void traiter(Demande demande) throws EgovException;
-	
-	/**
-	 * @param demande
-	 * @return
-	 * @throws EgovException
-	 */
-	public CinInfo delivrer(Demande demande) throws EgovException;
-	
-	/**
-	 * @param demande
-	 * @return
-	 * @throws EgovException
-	 */
-	public EtatDemande getEtat(Demande demande) throws EgovException;
+	public CinInfo traiter(TraiterDemandeInfo info) throws EgovException;
 
 }

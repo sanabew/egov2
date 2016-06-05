@@ -1,12 +1,12 @@
 package gov.esprit.domain;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import gov.esprit.enums.TypeTransacrion;
@@ -22,7 +22,7 @@ public class Transaction implements Serializable {
 	   
 	
 	private int id;
-	private LocalDateTime date;
+	private Date date;
 	private TypeTransacrion type;
 	private float montant;
 	private Compte compte;
@@ -40,11 +40,11 @@ public class Transaction implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
-	public LocalDateTime getDate() {
+	public Date getDate() {
 		return this.date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}   
 	public TypeTransacrion getType() {
@@ -62,6 +62,7 @@ public class Transaction implements Serializable {
 		this.montant = montant;
 	}
 	@ManyToOne
+	@JoinColumn(name="compteId",referencedColumnName="id")
 	public Compte getCompte() {
 		return compte;
 	}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.FonctionaliteTwoController">
+  <children>
+    <Pane layoutX="79.0" layoutY="36.0" prefHeight="328.0" prefWidth="466.0">
+      <children>
+        <Button id="" fx:id="demande_cin" layoutX="21.0" layoutY="26.0" mnemonicParsing="false" prefWidth="191.00009999999747" text="Demande CIN" />
+        <Button id="" fx:id="demande_passport" layoutX="251.0" layoutY="26.0" mnemonicParsing="false" prefWidth="191.0" text="Demande Passport" />
+        <Button id="" fx:id="demande_perte_cin" layoutX="21.0" layoutY="83.0" mnemonicParsing="false" prefWidth="191.0" text="Demande Perte CIN" />
+        <Button id="" fx:id="demande_perte_passport" layoutX="243.0" layoutY="83.0" mnemonicParsing="false" prefWidth="191.0" text="Declaration Perte Passport" />
+        <Button id="" fx:id="demande_extrait_bulletin" layoutX="21.0" layoutY="143.0" mnemonicParsing="false" prefWidth="191.0" text="Extrait Bulletin 3" />
+        <Button id="" fx:id="renouv_passp" layoutX="243.0" layoutY="143.0" mnemonicParsing="false" prefWidth="191.0" text="Renouvellement Passport" />
+        <Button fx:id="traitement_demande_cin" layoutX="21.0" layoutY="205.0" mnemonicParsing="false" prefWidth="191.0" text="Traitement Demande CIN" />
+        <Button fx:id="trait_demande_passport" layoutX="243.0" layoutY="205.0" mnemonicParsing="false" prefWidth="191.0" text="Traitement Demande Passport" />
+        <Button fx:id="attestation_de_residence" layoutX="138.0" layoutY="265.0" mnemonicParsing="false" prefWidth="191.0" text="Attestation de résidence" />
+      </children>
+    </Pane>
+    <Button fx:id="btn_back" layoutX="414.0" layoutY="16.0" mnemonicParsing="false" prefWidth="161.9998779296875" text="Tableau De Bord" />
+    <Label layoutX="240.0" layoutY="21.0" text="Ministère de l'intérieur" />
+  </children>
+</AnchorPane>

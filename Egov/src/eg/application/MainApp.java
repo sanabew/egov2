@@ -59,7 +59,7 @@ public class MainApp extends Application {
         
  
 		try {
-			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/EventHandling.fxml"));
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FormAuth.fxml"));
 			AnchorPane page = (AnchorPane) loader.load();
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);

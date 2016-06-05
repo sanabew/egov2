@@ -5,5 +5,6 @@ public enum EtatDemande {
 	EN_ATTENTE,
 	EN_COURS,
 	PRET,
+	DELIVREE,
 	IRRIGULARITE;
 }

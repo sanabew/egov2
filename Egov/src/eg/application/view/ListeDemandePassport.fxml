@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="363.0" prefWidth="693.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.ListeDemandePassportController">
+  <children>
+    <SplitPane dividerPositions="0.41244573082489144" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <items>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <children>
+            <TableView fx:id="personTable" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+              </columnResizePolicy>
+              <columns>
+                <TableColumn prefWidth="75.0" text="N° Demande" fx:id="num_demande" />
+                <TableColumn prefWidth="75.0" text="Date" fx:id="date" />
+              </columns>
+            </TableView>
+          </children>
+        </AnchorPane>
+        <AnchorPane fx:id="traiter" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" styleClass="background">
+          <children>
+            <Label styleClass="label-header" text="Liste de Demande Passport" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <GridPane prefHeight="142.0" prefWidth="393.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="87.0">
+              <children>
+                <Label text="First Name" />
+                <Label text="Last Name" GridPane.rowIndex="1" />
+                <Label text="" GridPane.rowIndex="2" />
+                <Label text="" GridPane.rowIndex="3" />
+                <Label text="" GridPane.rowIndex="4" />
+                <Label text="" GridPane.rowIndex="5" />
+                <Label fx:id="firstNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" />
+                <Label fx:id="lastNameLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="streetLabel" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Label fx:id="cityLabel" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <Label fx:id="postalCodeLabel" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <Label fx:id="birthdayLabel" styleClass="label-bright" text="" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <ButtonBar layoutX="54.0" layoutY="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+              <buttons>
+                <Button mnemonicParsing="false" onAction="#handleNewPerson" text="New..." />
+                <Button mnemonicParsing="false" onAction="#handleEditPerson" text="Edit..." />
+                <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeletePerson" prefHeight="33.0" prefWidth="120.0" text="Delete" />
+              </buttons>
+            </ButtonBar>
+            <Button layoutX="122.0" layoutY="317.0" mnemonicParsing="false" prefWidth="87.0" text="Traiter" />
+          </children>
+        </AnchorPane>
+      </items>
+    </SplitPane>
+  </children>
+</AnchorPane>
