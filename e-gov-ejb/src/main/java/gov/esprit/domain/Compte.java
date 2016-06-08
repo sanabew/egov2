@@ -2,6 +2,7 @@ package gov.esprit.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -22,8 +23,7 @@ public class Compte implements Serializable {
 
 	
 	private int id;
-	private int numero;
-	private LocalDateTime dateOuverture;
+	private Date dateOuverture;
 	private Citoyen proprietaire;
 	private float solde;
 	private List<Transaction>transactions;
@@ -41,18 +41,12 @@ public class Compte implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
-	public int getNumero() {
-		return this.numero;
-	}
-
-	public void setNumero(int numero) {
-		this.numero = numero;
-	}   
-	public LocalDateTime getDateOuverture() {
+   
+	public Date getDateOuverture() {
 		return this.dateOuverture;
 	}
 
-	public void setDateOuverture(LocalDateTime dateOuverture) {
+	public void setDateOuverture(Date dateOuverture) {
 		this.dateOuverture = dateOuverture;
 	}  
 	@ManyToOne

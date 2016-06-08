@@ -96,6 +96,21 @@ public class DashbordController {
 			}
 
 		});
+		
+		btn_fonctionalite_three.setOnAction((event) -> {
+
+			try {
+				MainApp.primaryStage.setTitle("Espace Poste");
+				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteThree.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+				Scene scene = new Scene(page);
+				MainApp.primaryStage.setScene(scene);
+				MainApp.primaryStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		});
 
 	}
 

@@ -10,6 +10,8 @@ import gov.esprit.exception.EgovException;
 public interface CitoyenServiceRemote {
 
 	
-	public Citoyen findByCin(String cin) throws EgovException;
+	public Citoyen findByCin(String cin) ;
+
+	void addCitoyen(Citoyen c);
 
 }

@@ -112,5 +112,6 @@
     <module>e-gov-web</module>
     <module>e-gov-ear</module>
     <module>e-gov-client</module>
+    <module>e-gov-fx</module>
   </modules>
 </project>

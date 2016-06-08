@@ -1,33 +1,19 @@
 package eg.application.view;
 
-import java.awt.Checkbox;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
-import javax.ejb.EJB;
+import java.io.IOException;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-
 import eg.application.MainApp;
-import gov.esprit.domain.Citoyen;
-import gov.esprit.enums.Gouvernerat;
 import gov.esprit.service.cin.DemandeCINServiceRemote;
-import gov.esprit.service.user.UserServiceRemote;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Labeled;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Window;
 
 public class DemandeCinController {
 
@@ -97,9 +83,9 @@ public class DemandeCinController {
 
 				
 				
-					DateFormat format = new SimpleDateFormat("dd.mm.yyyy", Locale.ENGLISH);
+				/*DateFormat format = new SimpleDateFormat("dd.mm.yyyy", Locale.ENGLISH);
 					Date date = format.parse(date_de_naissance.getText());
-				//	proxy.ajouter("med", "med", true, true, true, true, Gouvernerat.TUNIS);
+					proxy.ajouter("med", "med", true, true, true, true, Gouvernerat.TUNIS);*/
 				
 			} catch (Exception e) {
 			

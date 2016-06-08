@@ -52,7 +52,7 @@ public class Citoyen implements Serializable {
 	private List<Demande>demandes;
 	private List<AbonnementTransport> abonnementTransports;
 	
-	@Column(unique=true, length=8)
+	
 	private String cin;
 
 	private static final long serialVersionUID = 1L;
@@ -191,6 +191,7 @@ public class Citoyen implements Serializable {
 	/**
 	 * @return the cin
 	 */
+	@Column(unique=true)
 	public String getCin() {
 		return cin;
 	}
@@ -209,4 +210,11 @@ public class Citoyen implements Serializable {
 	public void setGouvernerat(Gouvernerat gouvernerat) {
 		this.gouvernerat = gouvernerat;
 	}
+	@Override
+	public String toString() {
+		return "Citoyen [ nom=" + nom + ", prenom=" + prenom + ", dateNaissance=" + dateNaissance
+				+ ", cin=" + cin + "]";
+	}
+	
+	
 }

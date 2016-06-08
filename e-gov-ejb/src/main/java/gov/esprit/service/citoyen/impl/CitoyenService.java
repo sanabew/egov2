@@ -34,20 +34,21 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
     }
 
 	@Override
-	public Citoyen findByCin(String cin) throws EgovException {
-		Citoyen citoyen = null;
+	public Citoyen findByCin(String cin) {
+	
 		try {
-			
+		
 			Query query = em.createQuery(
-				    "SELECT * FROM Citoyen c WHERE c.cin = :cin"
+				    "select c from Citoyen c where c.cin = :cin "
 				);
 			query.setParameter("cin", cin);
-			citoyen = (Citoyen) query.getSingleResult();
-		
+			return (Citoyen) query.getSingleResult();
+			
 		} catch (Exception e) {
-			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_CITOYEN_WITH_CIN: " + cin);
+			e.printStackTrace();
+			//throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_CITOYEN_WITH_CIN: " + cin);
 		}
-		return citoyen;
+		return null;
 	}
 
 	@Override
@@ -76,6 +77,21 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
 					+ nom + " " + prenom + "birth in " + date.toString() + " lives in" + gouvernerat);
 		}
 		return citoyen;
+	}
+	
+	@Override
+	public void addCitoyen(Citoyen c){
+		
+		try {
+			
+			em.persist(c);
+			
+		
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+	
 	}
 	
 	
