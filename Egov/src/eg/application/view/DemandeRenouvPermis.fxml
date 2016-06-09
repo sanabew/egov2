@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.application.view.DemandeNouveauPermisController">
+  <children>
+    <Pane layoutX="34.0" layoutY="11.0" prefHeight="454.0" prefWidth="512.0">
+      <children>
+        <Label layoutX="228.0" layoutY="22.0" text="Demande Permis" />
+        <Label layoutX="106.0" layoutY="122.0" text="Numero Permis" />
+        <TextField fx:id="num_permis" layoutX="225.0" layoutY="116.0" prefWidth="200.0" promptText="numero" text="" />
+        <Button fx:id="retour" layoutX="393.0" layoutY="20.0" mnemonicParsing="false" prefWidth="105.0" text="Retour" />
+        <Label layoutX="106.0" layoutY="235.0" text="Demande Joint" />
+        <Button fx:id="deposer_la_demande" layoutX="214.0" layoutY="384.0" mnemonicParsing="false" prefWidth="165.0" text="Deposer La Demande" />
+        <CheckBox fx:id="certif_medical" layoutX="230.0" layoutY="235.0" mnemonicParsing="false" text="Certificat Médical" />
+        <CheckBox fx:id="photo" layoutX="228.0" layoutY="267.0" mnemonicParsing="false" text="Photo D'identité" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

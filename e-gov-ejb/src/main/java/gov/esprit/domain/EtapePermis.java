@@ -1,6 +1,7 @@
 package gov.esprit.domain;
 
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Null;
 
 @Embeddable
 public class EtapePermis {
@@ -13,6 +14,11 @@ public class EtapePermis {
 	
 	
 	public EtapePermis() {
+		this.setCertifMedicalPermis(false);
+		this.setExamenPermis(false);
+		this.setImpressionPermis(false);
+		this.setLivraisonPermis(false);
+		this.setPhotosPermis(false);
 	}
 
 
@@ -30,7 +36,7 @@ public class EtapePermis {
 		return examenPermis;
 	}
 
-
+	
 	public void setExamenPermis(boolean examenPermis) {
 		this.examenPermis = examenPermis;
 	}

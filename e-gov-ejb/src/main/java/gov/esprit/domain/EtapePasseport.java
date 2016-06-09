@@ -13,6 +13,13 @@ public class EtapePasseport {
 	private boolean timbrePasseport;
 	
 	public EtapePasseport() {
+		this.setDocumentsPasseport(false);
+		this.setEmpreintePasseport(false);
+		this.setImpressionPasseport(false);
+		this.setLivraisonPasseport(false);
+		this.setPhotosPasseport(false);
+		this.setTimbrePasseport(false);
+		
 	}
 	
 	public boolean isDocumentsPasseport() {

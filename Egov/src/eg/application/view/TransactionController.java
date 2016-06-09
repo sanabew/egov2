@@ -93,7 +93,7 @@ public class TransactionController {
 
 			try {
 				MainApp.primaryStage.setTitle("Espace User");
-				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteOne.fxml"));
+				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteThree.fxml"));
 				AnchorPane page = (AnchorPane) loader.load();
 				Scene scene = new Scene(page);
 				MainApp.primaryStage.setScene(scene);

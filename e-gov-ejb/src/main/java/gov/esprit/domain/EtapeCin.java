@@ -12,6 +12,11 @@ public class EtapeCin {
 	private boolean livraisonCin;
 	
 	public EtapeCin() {
+		this.setDocuments(false);
+		this.setEmpreinte(false);
+		this.setImpression(false);
+		this.setLivraison(false);
+		this.setPhotos(false);
 	}
 	
 	public boolean isDocuments() {
