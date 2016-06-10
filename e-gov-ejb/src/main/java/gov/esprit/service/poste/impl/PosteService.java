@@ -6,8 +6,6 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
-import javax.naming.Context;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,7 +16,6 @@ import gov.esprit.domain.Transaction;
 import gov.esprit.enums.TypeTransacrion;
 import gov.esprit.exception.EgovErrorCode;
 import gov.esprit.exception.EgovException;
-import gov.esprit.service.citoyen.CitoyenServiceLocal;
 import gov.esprit.service.citoyen.CitoyenServiceRemote;
 import gov.esprit.service.poste.PosteServiceLocal;
 import gov.esprit.service.poste.PosteServiceRemote;
@@ -84,12 +81,13 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 				if(solde>=montant){
 					solde = solde-montant;
 					compte.setSolde(solde);
-					entityManager.persist(transaction);
-					entityManager.persist(compte);
+					
 				}else{
 					throw new EgovException(EgovErrorCode.INVALID_ITEM, "_MONTANT_NON_AUTHORISE");
 				}
 			}
+			entityManager.merge(transaction);
+			entityManager.persist(compte);
 		}else{
 			throw new EgovException(EgovErrorCode.INVALID_ITEM, "_CIN: " + cin);
 		}

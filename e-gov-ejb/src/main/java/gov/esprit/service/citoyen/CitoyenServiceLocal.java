@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.ejb.Local;
 
 import gov.esprit.domain.Citoyen;
-import gov.esprit.enums.EtatDemande;
 import gov.esprit.enums.Gouvernerat;
 import gov.esprit.exception.EgovException;
 

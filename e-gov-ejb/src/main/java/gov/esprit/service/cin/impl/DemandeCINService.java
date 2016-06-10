@@ -28,7 +28,7 @@ import gov.esprit.exception.EgovException;
 import gov.esprit.service.cin.DemandeCINServiceLocal;
 import gov.esprit.service.cin.DemandeCINServiceRemote;
 import gov.esprit.service.citoyen.CitoyenServiceLocal;
-import gov.esprit.service.demande.impl.DemandeServiceLocal;
+import gov.esprit.service.demande.DemandeServiceLocal;
 import gov.esprit.service.user.UserServiceLocal;
 import gov.esprit.utils.Identifier;
 

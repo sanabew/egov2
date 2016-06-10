@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>tn.esprit.bi</groupId>
 	<artifactId>e-gov</artifactId>
@@ -7,7 +8,7 @@
 	<packaging>pom</packaging>
 	<properties>
 		<project.version>1.0.0-SNAPSHOT</project.version>
-		
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -38,7 +39,7 @@
 				<version>${project.version}</version>
 				<type>ejb</type>
 			</dependency>
-            <dependency>
+			<dependency>
 				<groupId>tn.esprit.bi</groupId>
 				<artifactId>e-gov-client</artifactId>
 				<version>${project.version}</version>
@@ -52,6 +53,12 @@
 				<type>war</type>
 			</dependency>
 
+			<dependency>
+				<groupId>tn.esprit.bi</groupId>
+				<artifactId>e-gov-fx</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+			</dependency>
 
 			<dependency>
 				<groupId>javax</groupId>
@@ -65,36 +72,36 @@
 				<artifactId>primefaces</artifactId>
 				<version>${primefaces.version}</version>
 			</dependency>
-			
+
 			<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.7</version>
-		</dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+			</dependency>
+
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+				<version>2.7</version>
+			</dependency>
 
 		</dependencies>
 	</dependencyManagement>
 
 
-<!-- 	<distributionManagement> -->
-<!-- 		<repository> -->
-<!-- 			<id>deployment</id> -->
-<!-- 			<name>releases</name> -->
-<!-- 			<url>http://git.esprit.tn:8081/nexus/content/repositories/releases/</url> -->
-<!-- 		</repository> -->
+	<!-- <distributionManagement> -->
+	<!-- <repository> -->
+	<!-- <id>deployment</id> -->
+	<!-- <name>releases</name> -->
+	<!-- <url>http://git.esprit.tn:8081/nexus/content/repositories/releases/</url> -->
+	<!-- </repository> -->
 
-<!-- 		<snapshotRepository> -->
-<!-- 			<id>deployment</id> -->
-<!-- 			<name>snapshots</name> -->
-<!-- 			<url>http://git.esprit.tn:8081/nexus/content/repositories/snapshots/</url> -->
-<!-- 		</snapshotRepository> -->
-<!-- 	</distributionManagement> -->
+	<!-- <snapshotRepository> -->
+	<!-- <id>deployment</id> -->
+	<!-- <name>snapshots</name> -->
+	<!-- <url>http://git.esprit.tn:8081/nexus/content/repositories/snapshots/</url> -->
+	<!-- </snapshotRepository> -->
+	<!-- </distributionManagement> -->
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -107,11 +114,11 @@
 		</pluginManagement>
 	</build>
 
-  <modules>
-    <module>e-gov-ejb</module>
-    <module>e-gov-web</module>
-    <module>e-gov-ear</module>
-    <module>e-gov-client</module>
-    <module>e-gov-fx</module>
-  </modules>
+	<modules>
+		<module>e-gov-ejb</module>
+		<module>e-gov-web</module>
+		<module>e-gov-ear</module>
+		<module>e-gov-client</module>
+		<module>e-gov-fx</module>
+	</modules>
 </project>

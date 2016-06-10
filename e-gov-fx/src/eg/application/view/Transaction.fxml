@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.TransactionController">
+  <children>
+    <Pane layoutX="37.0" layoutY="26.0" prefHeight="367.0" prefWidth="531.0">
+      <children>
+        <Label layoutX="189.0" layoutY="25.0" prefHeight="26.9609375" prefWidth="211.0" text="Transaction" />
+        <TextField id="" fx:id="cin" layoutX="166.0" layoutY="76.0" prefWidth="200.0" promptText="Cin" />
+        <TextField id="" fx:id="num_compte" layoutX="166.0" layoutY="115.0" prefWidth="200.0" promptText="N° Compte" />
+        <Button id="" fx:id="btn_valider" layoutX="383.0" layoutY="290.0" mnemonicParsing="false" prefWidth="85.0" text="Valider" />
+        <Label layoutX="21.0" layoutY="76.0" prefHeight="26.9609375" prefWidth="130.0" text="Cin" />
+        <Label layoutX="21.0" layoutY="113.0" prefHeight="26.9609375" prefWidth="130.0" text="N° Compte" />
+        <TextField id="date_naissance" fx:id="montant" layoutX="151.0" layoutY="238.0" prefWidth="200.0" promptText=".TND" text="" />
+        <Label layoutX="21.0" layoutY="241.0" prefHeight="26.9609375" prefWidth="130.0" text="Montant" />
+        <Label layoutX="21.0" layoutY="191.0" prefHeight="26.9609375" prefWidth="130.0" text="Type" />
+        <RadioButton fx:id="versement" layoutX="246.0" layoutY="196.0" mnemonicParsing="false" text="Versement" />
+        <RadioButton fx:id="retrait" layoutX="140.0" layoutY="196.0" mnemonicParsing="false" text="Retrait" />
+        <Button id="" fx:id="retour" layoutX="400.0" layoutY="37.0" mnemonicParsing="false" prefWidth="85.0" text="Retour" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

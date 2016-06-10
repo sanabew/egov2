@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 import gov.esprit.enums.EtatDemande;
 import gov.esprit.enums.TypeDemande;
-import gov.esprit.enums.TypePermis;
+
 
 /**
  * Entity implementation class for Entity: Demande

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.AtestationResidenceController">
+  <children>
+    <Pane layoutX="91.0" layoutY="56.0" prefHeight="249.0" prefWidth="418.0">
+      <children>
+        <Label layoutX="135.0" layoutY="29.0" prefWidth="158.0" text="Attestation De Résidence" />
+        <Button fx:id="valider" layoutX="166.0" layoutY="201.0" mnemonicParsing="false" prefWidth="127.0" text="Valider" />
+        <Label layoutX="29.0" layoutY="83.0" minHeight="6.9609375" prefHeight="20.9609375" text="N° CIN" />
+        <TextField fx:id="cin" layoutX="109.0" layoutY="83.0" prefWidth="200.0" promptText="N° CIN" />
+        <Label layoutX="29.0" layoutY="136.0" text="Adresee" />
+        <TextArea fx:id="adresse" layoutX="109.0" layoutY="121.0" prefHeight="62.0" prefWidth="200.0" wrapText="true" />
+        <Button id="valider" fx:id="retour" layoutX="291.0" layoutY="8.0" mnemonicParsing="false" prefWidth="127.0" text="Retour" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

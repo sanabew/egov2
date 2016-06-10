@@ -12,7 +12,7 @@ public class OuvirCompteTest {
 
 	public static void main(String[] args) {
 		Context context;
-		Context context2;
+		
 		Citoyen citoyen = new Citoyen();
 		Citoyen citoyen2 = new Citoyen();
 		

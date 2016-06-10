@@ -1,9 +1,11 @@
 package gov.esprit.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class EtapePasseport {
+public class EtapePasseport implements Serializable {
 
 	private boolean documentsPasseport;
 	private boolean photosPasseport;
@@ -11,17 +13,19 @@ public class EtapePasseport {
 	private boolean impressionPasseport;
 	private boolean livraisonPasseport;
 	private boolean timbrePasseport;
-	
+	private static final long serialVersionUID = 1L;
 	public EtapePasseport() {
+		
+		
+	}
+	public void initialize(){
 		this.setDocumentsPasseport(false);
 		this.setEmpreintePasseport(false);
 		this.setImpressionPasseport(false);
 		this.setLivraisonPasseport(false);
 		this.setPhotosPasseport(false);
 		this.setTimbrePasseport(false);
-		
 	}
-	
 	public boolean isDocumentsPasseport() {
 		return documentsPasseport;
 	}

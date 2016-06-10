@@ -5,7 +5,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import gov.esprit.domain.Compte;
-import gov.esprit.service.citoyen.CitoyenServiceRemote;
 import gov.esprit.service.poste.PosteServiceRemote;
 
 public class rechercheCompteTest {

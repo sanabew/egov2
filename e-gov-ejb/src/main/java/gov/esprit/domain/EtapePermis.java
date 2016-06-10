@@ -1,19 +1,26 @@
 package gov.esprit.domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
-import javax.validation.constraints.Null;
+
 
 @Embeddable
-public class EtapePermis {
+public class EtapePermis  implements Serializable {
 
 	private boolean photosPermis;
 	private boolean examenPermis;
 	private boolean impressionPermis;
 	private boolean livraisonPermis;
 	private boolean certifMedicalPermis;
+	private static final long serialVersionUID = 1L;
 	
 	
 	public EtapePermis() {
+		
+	}
+	
+	public void initialize(){
 		this.setCertifMedicalPermis(false);
 		this.setExamenPermis(false);
 		this.setImpressionPermis(false);
@@ -70,5 +77,14 @@ public class EtapePermis {
 	public void setCertifMedicalPermis(boolean certifMedicalPermis) {
 		this.certifMedicalPermis = certifMedicalPermis;
 	}
+
+	@Override
+	public String toString() {
+		return "EtapePermis [photosPermis=" + photosPermis + ", examenPermis=" + examenPermis + ", impressionPermis="
+				+ impressionPermis + ", livraisonPermis=" + livraisonPermis + ", certifMedicalPermis="
+				+ certifMedicalPermis + "]";
+	}
+	
+	
 	
 }

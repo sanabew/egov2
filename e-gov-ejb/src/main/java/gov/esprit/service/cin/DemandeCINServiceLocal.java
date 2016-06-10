@@ -6,9 +6,6 @@ import javax.ejb.Local;
 
 import gov.esprit.business.CinInfo;
 import gov.esprit.business.TraiterDemandeInfo;
-import gov.esprit.domain.Citoyen;
-import gov.esprit.domain.Demande;
-import gov.esprit.enums.EtatDemande;
 import gov.esprit.enums.Gouvernerat;
 import gov.esprit.exception.EgovException;
 
