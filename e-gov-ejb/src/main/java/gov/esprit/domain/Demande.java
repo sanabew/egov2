@@ -3,8 +3,11 @@ package gov.esprit.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +23,6 @@ import gov.esprit.enums.TypePermis;
  *
  */
 @Entity
-
 public class Demande implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -47,6 +49,8 @@ public class Demande implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}   
+	
+	@Enumerated(EnumType.STRING)
 	public TypeDemande getType() {
 		return this.type;
 	}
@@ -69,6 +73,8 @@ public class Demande implements Serializable {
 	public void setCitoyen(Citoyen citoyen) {
 		this.citoyen = citoyen;
 	}
+	
+	@Enumerated(EnumType.STRING)
 	public EtatDemande getEtat() {
 		return etat;
 	}
@@ -76,6 +82,7 @@ public class Demande implements Serializable {
 		this.etat = etat;
 	}
 	@Embedded
+	@Column(nullable=true)
 	public EtapeCin getEtapeCin() {
 		return etapeCin;
 	}
@@ -85,6 +92,7 @@ public class Demande implements Serializable {
 	}
 	
 	@Embedded
+	@Column(nullable=true)
 	public EtapePasseport getEtapePasseport() {
 		return etapePasseport;
 	}
@@ -94,6 +102,7 @@ public class Demande implements Serializable {
 	}
 
 	@Embedded
+	@Column(nullable=true)
 	public EtapePermis getEtapePermis() {
 		return etapePermis;
 	}

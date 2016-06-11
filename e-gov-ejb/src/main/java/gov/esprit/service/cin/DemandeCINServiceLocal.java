@@ -1,6 +1,7 @@
 package gov.esprit.service.cin;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.Local;
 
@@ -33,7 +34,7 @@ public interface DemandeCINServiceLocal {
 	 * 
 	 * @throws EgovException
 	 */
-	public void ajouter(String nom, String prenom, Date date, boolean isInscrit, boolean isExtrait, boolean isResidenceProof, boolean isTravailProof, Gouvernerat gouvernerat)
+	public void ajouter(String nom, String prenom, boolean isInscrit, boolean isExtrait, boolean isResidenceProof, boolean isTravailProof, Gouvernerat gouvernerat, Date date)
 			throws EgovException;
 	/**
 	 * Traiter une demande d'obtention d'une cin.
@@ -44,5 +45,10 @@ public interface DemandeCINServiceLocal {
 	 * @throws EgovException
 	 */
 	public CinInfo traiter(TraiterDemandeInfo info) throws EgovException;
+	
+	/**
+	 * @return
+	 */
+	public List<Demande> findAll();
 
 }

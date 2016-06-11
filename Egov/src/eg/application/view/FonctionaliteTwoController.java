@@ -156,7 +156,7 @@ public class FonctionaliteTwoController {
 			}
 
 		});
-		traitement_demande_cin.setOnAction((event) -> {
+		traitement_demande_cin.setOnAction(event -> {
 
 			try {
 				MainApp.primaryStage.setTitle("Liste des demandes CIN");

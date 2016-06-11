@@ -1,49 +1,98 @@
 package gov.esprit.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class EtapeCin {
+public class EtapeCin implements Serializable{
 
-	private boolean documentsCin;
-	private boolean photosCin;
-	private boolean empreinteCin;
-	private boolean impressionCin;
-	private boolean livraisonCin;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Boolean documentsCin;
+	private Boolean photosCin;
+	private Boolean empreinteCin;
+	private Boolean impressionCin;
+	private Boolean livraisonCin;
 	
 	public EtapeCin() {
 	}
-	
-	public boolean isDocuments() {
+
+	/**
+	 * @return the documentsCin
+	 */
+	public Boolean isDocumentsCin() {
 		return documentsCin;
 	}
-	public void setDocuments(boolean documents) {
-		this.documentsCin = documents;
+
+	/**
+	 * @param documentsCin the documentsCin to set
+	 */
+	public void setDocumentsCin(Boolean documentsCin) {
+		this.documentsCin = documentsCin;
 	}
-	public boolean isPhotos() {
+
+	/**
+	 * @return the photosCin
+	 */
+	public Boolean isPhotosCin() {
 		return photosCin;
 	}
-	public void setPhotos(boolean photos) {
-		this.photosCin = photos;
+
+	/**
+	 * @param photosCin the photosCin to set
+	 */
+	public void setPhotosCin(Boolean photosCin) {
+		this.photosCin = photosCin;
 	}
-	public boolean isEmpreinte() {
+
+	/**
+	 * @return the empreinteCin
+	 */
+	public Boolean isEmpreinteCin() {
 		return empreinteCin;
 	}
-	public void setEmpreinte(boolean empreinte) {
-		this.empreinteCin = empreinte;
+
+	/**
+	 * @param empreinteCin the empreinteCin to set
+	 */
+	public void setEmpreinteCin(Boolean empreinteCin) {
+		this.empreinteCin = empreinteCin;
 	}
-	public boolean isImpression() {
+
+	/**
+	 * @return the impressionCin
+	 */
+	public Boolean isImpressionCin() {
 		return impressionCin;
 	}
-	public void setImpression(boolean impression) {
-		this.impressionCin = impression;
+
+	/**
+	 * @param impressionCin the impressionCin to set
+	 */
+	public void setImpressionCin(Boolean impressionCin) {
+		this.impressionCin = impressionCin;
 	}
-	public boolean isLivraison() {
+
+	/**
+	 * @return the livraisonCin
+	 */
+	public Boolean isLivraisonCin() {
 		return livraisonCin;
 	}
-	public void setLivraison(boolean livraison) {
-		this.livraisonCin = livraison;
+
+	/**
+	 * @param livraisonCin the livraisonCin to set
+	 */
+	public void setLivraisonCin(Boolean livraisonCin) {
+		this.livraisonCin = livraisonCin;
 	}
+	
+	
 	
 	
 }

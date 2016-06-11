@@ -1,67 +1,74 @@
 package gov.esprit.domain;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class EtapePermis {
+public class EtapePermis implements Serializable{
 
-	private boolean photosPermis;
-	private boolean examenPermis;
-	private boolean impressionPermis;
-	private boolean livraisonPermis;
-	private boolean certifMedicalPermis;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5827515817889298484L;
+	private Boolean photosPermis;
+	private Boolean examenPermis;
+	private Boolean impressionPermis;
+	private Boolean livraisonPermis;
+	private Boolean certifMedicalPermis;
 	
 	
 	public EtapePermis() {
 	}
 
 
-	public boolean isPhotosPermis() {
+	public Boolean isPhotosPermis() {
 		return photosPermis;
 	}
 
 
-	public void setPhotosPermis(boolean photosPermis) {
+	public void setPhotosPermis(Boolean photosPermis) {
 		this.photosPermis = photosPermis;
 	}
 
 
-	public boolean isExamenPermis() {
+	public Boolean isExamenPermis() {
 		return examenPermis;
 	}
 
 
-	public void setExamenPermis(boolean examenPermis) {
+	public void setExamenPermis(Boolean examenPermis) {
 		this.examenPermis = examenPermis;
 	}
 
 
-	public boolean isImpressionPermis() {
+	public Boolean isImpressionPermis() {
 		return impressionPermis;
 	}
 
 
-	public void setImpressionPermis(boolean impressionPermis) {
+	public void setImpressionPermis(Boolean impressionPermis) {
 		this.impressionPermis = impressionPermis;
 	}
 
 
-	public boolean isLivraisonPermis() {
+	public Boolean isLivraisonPermis() {
 		return livraisonPermis;
 	}
 
 
-	public void setLivraisonPermis(boolean livraisonPermis) {
+	public void setLivraisonPermis(Boolean livraisonPermis) {
 		this.livraisonPermis = livraisonPermis;
 	}
 
 
-	public boolean isCertifMedicalPermis() {
+	public Boolean isCertifMedicalPermis() {
 		return certifMedicalPermis;
 	}
 
 
-	public void setCertifMedicalPermis(boolean certifMedicalPermis) {
+	public void setCertifMedicalPermis(Boolean certifMedicalPermis) {
 		this.certifMedicalPermis = certifMedicalPermis;
 	}
 	
