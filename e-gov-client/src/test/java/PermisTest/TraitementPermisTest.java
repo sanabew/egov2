@@ -30,9 +30,9 @@ public class TraitementPermisTest {
 		
 			TraiterDemandeInfo info = new TraiterDemandeInfo();
 			EtapeCin etapes2 = new EtapeCin();
-			etapes2.initialize();
+		
 			EtapePasseport etapes3 = new EtapePasseport();
-			etapes3.initialize();
+		
 			info.setEtapeCin(etapes2);
 			info.setEtapePasseport(etapes3);
 			info.setEtapePermis(etapes);

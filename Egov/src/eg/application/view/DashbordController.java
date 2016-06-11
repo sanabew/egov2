@@ -1,27 +1,31 @@
 package eg.application.view;
 
 import eg.application.MainApp;
+import gov.esprit.domain.Person;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.naming.NamingException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class DashbordController {
 
 	@FXML
 	private TextArea output_textarea;
-	@FXML
-	private TextField password;
+	
 	@FXML
 	private Button btn_mon_profil;
 	@FXML
@@ -58,7 +62,12 @@ public class DashbordController {
 	 */
 	@FXML
 	private void initialize() {
-
+	
+		output_textarea.appendText("\n Bienvenu \n");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy   H:M");
+		String laDateDuJour = sdf.format(new java.util.Date());
+		output_textarea.appendText("Ajourd'hui le :" + laDateDuJour);
+		
 		btn_fonctionalite_one.setOnAction((event) -> {
 
 			try {
@@ -74,6 +83,30 @@ public class DashbordController {
 			}
 
 		});
+		btn_logout.setOnAction((event) -> {
+			Alert alert = new Alert(AlertType.ERROR);
+            Window dialogStage = null;
+			alert.initOwner(dialogStage);
+            alert.setTitle("Logout");
+            alert.setHeaderText("Merci Pour Votre Connexion");
+            alert.setContentText("à bientot");
+            
+            alert.showAndWait();
+			
+			try {
+				MainApp.primaryStage.setTitle("Espace User");
+				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FormAuth.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+				Scene scene = new Scene(page);
+				MainApp.primaryStage.setScene(scene);
+				MainApp.primaryStage.show();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		});
+		
 		gestionuser.setOnAction((event) -> {
 
 			MainApp.primaryStage.setTitle("Login");

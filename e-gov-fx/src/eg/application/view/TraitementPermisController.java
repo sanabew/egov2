@@ -78,7 +78,6 @@ public class TraitementPermisController {
 	@FXML
 	private void initialize() {
 
-		etapes.initialize();
 		select.setOnAction((event) -> {
 			try {
 			

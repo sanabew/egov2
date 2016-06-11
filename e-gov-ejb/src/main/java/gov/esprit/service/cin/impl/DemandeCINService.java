@@ -6,14 +6,17 @@ import static gov.esprit.enums.EtatDemande.IRRIGULARITE;
 import static gov.esprit.enums.EtatDemande.PRET;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import gov.esprit.business.CinInfo;
 import gov.esprit.business.TraiterDemandeInfo;
@@ -37,7 +40,7 @@ import gov.esprit.utils.Identifier;
  * 
  * @author monta
  */
-@Stateful
+@Stateless
 @LocalBean
 public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINServiceLocal {
 
@@ -69,10 +72,10 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 	}
 
 	@Override
-	public void ajouter(String nom, String prenom, Date date, boolean isInscrit, boolean isExtrait, boolean isResidenceProof, boolean isTravailProof, Gouvernerat gouvernerat)
+	public void ajouter(String nom, String prenom, boolean isInscrit, boolean isExtrait, boolean isResidenceProof, boolean isTravailProof, Gouvernerat gouvernerat, Date date)
 			throws EgovException {
 
-		Citoyen citoyen = citoyenServiceLocal.findByNomAndPrenomAndDateAndGouvernerat(nom, prenom, date, gouvernerat);
+		Citoyen citoyen = citoyenServiceLocal.findByNomAndPrenomAndDateAndGouvernerat(nom, prenom, gouvernerat, date);
 		
 		if (citoyen == null) {
 			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_CITOYEN");
@@ -83,12 +86,16 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 		if (!isResidenceProof) {
 			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_PREUVE_DE_RESIDENCE");
 		}
-		if (citoyen.getProfession().equals(Profession.ETDUIANT.name()) && !isInscrit){
-			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_ATTESTATION_INSCRIPTION");
-		}
-		if ( citoyen.getProfession().equals(Profession.ACTIF.name())){
+		if (citoyen.getProfession() != null){
 			
-			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_ATTESTATION_TRAVAIL");
+			if(citoyen.getProfession().equals(Profession.ETDUIANT.name()) && !isInscrit){
+				
+				throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_ATTESTATION_INSCRIPTION");
+			}
+			if ( citoyen.getProfession().equals(Profession.ACTIF.name())){
+			
+				throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_ATTESTATION_TRAVAIL");
+			}
 		}
 		Demande demande = new Demande();
 		demande.setType(TypeDemande.DEMANDE_CIN);
@@ -110,14 +117,14 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 			return null;
 		} 
 		// delivree
-		if (info.getEtapeCin().isLivraison()){
+		if (info.getEtapeCin().isLivraisonCin()){
 			
 			return delivrer(demande);
 		}
 		// pret
-		if (info.getEtapeCin().isDocuments() 
-				&& info.getEtapeCin().isEmpreinte()
-				&& info.getEtapeCin().isImpression()) {
+		if (info.getEtapeCin().isDocumentsCin() 
+				&& info.getEtapeCin().isEmpreinteCin()
+				&& info.getEtapeCin().isImpressionCin()) {
 			
 			demande.setEtat(PRET);
 			return null;
@@ -150,6 +157,18 @@ public class DemandeCINService implements DemandeCINServiceRemote, DemandeCINSer
 		em.merge(demande);
 
 		return cinInfo;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Demande> findAll() {
+		List<Demande> result = new ArrayList<>();
+		Query query = em.createQuery("select d from Demande d where d.type =:type");
+		query.setParameter("type", TypeDemande.DEMANDE_CIN);
+		
+		result = query.getResultList();
+		
+		return result;
 	}
 
 }

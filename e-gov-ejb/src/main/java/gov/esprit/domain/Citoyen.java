@@ -99,6 +99,7 @@ public class Citoyen implements Serializable {
 	public void setSex(Sex sex) {
 		this.sex = sex;
 	}
+	@Enumerated(EnumType.STRING)
 	public Civilite getCivilite() {
 		return civilite;
 	}

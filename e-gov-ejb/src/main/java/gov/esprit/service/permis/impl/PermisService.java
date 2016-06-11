@@ -63,11 +63,8 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
 			demande.setEtat(EtatDemande.EN_ATTENTE);
 			demande.setTypePermis(type);
 			EtapePermis etapes = new EtapePermis();
-			etapes.initialize();
 			EtapeCin etapes2 = new EtapeCin();
-			etapes2.initialize();
 			EtapePasseport etapes3 = new EtapePasseport();
-			etapes3.initialize();
 			demande.setEtapePermis(etapes);
 			demande.setEtapeCin(etapes2);
 			demande.setEtapePasseport(etapes3);
@@ -90,9 +87,7 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
 			demande.setEtat(EtatDemande.EN_ATTENTE);
 			EtapePermis etapes = new EtapePermis();
 			EtapeCin etapes2 = new EtapeCin();
-			etapes2.initialize();
 			EtapePasseport etapes3 = new EtapePasseport();
-			etapes3.initialize();
 			demande.setEtapePermis(etapes);
 			demande.setEtapeCin(etapes2);
 			demande.setEtapePasseport(etapes3);
@@ -123,7 +118,6 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
    
     
@@ -176,9 +170,4 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
 		}
 		return demande;
 	}
-
-   
-   
-    
-
 }

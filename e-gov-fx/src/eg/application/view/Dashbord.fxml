@@ -14,7 +14,7 @@
         <TextArea fx:id="output_textarea" layoutX="43.0" layoutY="54.0" prefHeight="64.0" prefWidth="291.0" text="Date : 01-Juin-2016  22.30&#10;&#10;Bonjour Agent : Exemple" wrapText="true" />
         <Button fx:id="btn_mon_profil" layoutX="106.0" layoutY="132.0" mnemonicParsing="false" prefWidth="154.0" text="Mon Profil" />
         <Button fx:id="btn_fonctionalite_three" layoutX="106.0" layoutY="233.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Services postaux" />
-        <Button fx:id="btn_fonctionalite_tow" layoutX="275.0" layoutY="198.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Services ministère interieur" />
+        <Button fx:id="btn_fonctionalite_tow" layoutX="275.0" layoutY="198.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="163.0" text="Ministère de l'interieur" />
         <Button fx:id="btn_fonctionalite_one" layoutX="106.0" layoutY="198.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="154.0" text="Services municipaux" />
         <Button fx:id="btn_logout" layoutX="351.0" layoutY="54.0" mnemonicParsing="false" prefWidth="91.0" text="Deconnexion" />
         <Button id="getsuser" fx:id="gestionuser" layoutX="281.0" layoutY="132.0" mnemonicParsing="false" prefWidth="154.0" text="Gestion des Utilisateurs" />

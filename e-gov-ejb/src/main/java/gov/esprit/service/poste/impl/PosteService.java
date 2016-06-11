@@ -84,13 +84,13 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 					compte.setSolde(solde);
 					
 				}else{
-					throw new EgovException(EgovErrorCode.SOLDE_INSUFFISANT);
+					throw new EgovException(EgovErrorCode.SOLDE_INSUFFISANT, ": " + solde);
 				}
 			}
 			entityManager.merge(transaction);
 			entityManager.persist(compte);
 		}else{
-			throw new EgovException(EgovErrorCode.OPERATION_NON_AUTHORISEE);
+			throw new EgovException(EgovErrorCode.OPERATION_NON_AUTHORISEE,": "+cin);
 		}
 	}
 	
@@ -104,7 +104,7 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 		query.setParameter("numeroCompte", numeroCompte);
 		return (List<Transaction>)query.getResultList();
 		}else{
-			throw new  EgovException(EgovErrorCode.OPERATION_NON_AUTHORISEE);
+			throw new  EgovException(EgovErrorCode.OPERATION_NON_AUTHORISEE,": "+cin);
 			}
 		
 	}

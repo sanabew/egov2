@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.application.view.ExtraireComptePostalController">
+  <children>
+    <Pane layoutX="37.0" layoutY="26.0" prefHeight="367.0" prefWidth="531.0">
+      <children>
+        <Label layoutX="189.0" layoutY="25.0" prefHeight="26.9609375" prefWidth="211.0" text="Transaction" />
+        <TextField id="" fx:id="cin" layoutX="166.0" layoutY="76.0" prefWidth="200.0" promptText="Cin" />
+        <TextField id="" fx:id="num_compte" layoutX="166.0" layoutY="115.0" prefWidth="200.0" promptText="N° Compte" />
+        <Button id="" fx:id="btn_valider" layoutX="166.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Valider" />
+        <Label layoutX="21.0" layoutY="76.0" prefHeight="26.9609375" prefWidth="130.0" text="Cin" />
+        <Label layoutX="21.0" layoutY="113.0" prefHeight="26.9609375" prefWidth="130.0" text="N° Compte" />
+        <Button id="" fx:id="retour" layoutX="400.0" layoutY="37.0" mnemonicParsing="false" prefWidth="85.0" text="Retour" />
+            <TableView fx:id="table" layoutX="14.0" layoutY="199.0" prefHeight="164.0" prefWidth="521.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

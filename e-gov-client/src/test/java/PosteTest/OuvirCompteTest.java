@@ -27,7 +27,7 @@ public class OuvirCompteTest {
 			citoyenservice = (CitoyenServiceRemote) context
 					.lookup("e-gov-ear/e-gov-ejb/CitoyenService!gov.esprit.service.citoyen.CitoyenServiceRemote");
 			System.out.println("step 1 : resolution jndi");
-			citoyenservice.addCitoyen(citoyen);
+			
 			citoyen2 = citoyenservice.findByCin(citoyen.getCin());
 			if (citoyen2 != null) {
 				System.out.println(citoyen2.toString());

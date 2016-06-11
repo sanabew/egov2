@@ -5,27 +5,22 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class EtapePasseport implements Serializable {
+public class EtapePasseport implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3485164665950564169L;
 	private Boolean documentsPasseport;
 	private Boolean photosPasseport;
 	private Boolean empreintePasseport;
 	private Boolean impressionPasseport;
 	private Boolean livraisonPasseport;
 	private Boolean timbrePasseport;
-	private static final long serialVersionUID = 1L;
+	
 	public EtapePasseport() {
-		
-		
 	}
-	public void initialize(){
-		this.setDocumentsPasseport(false);
-		this.setEmpreintePasseport(false);
-		this.setImpressionPasseport(false);
-		this.setLivraisonPasseport(false);
-		this.setPhotosPasseport(false);
-		this.setTimbrePasseport(false);
-	}
+	
 	public Boolean isDocumentsPasseport() {
 		return documentsPasseport;
 	}

@@ -12,9 +12,13 @@ import javafx.stage.Window;
 
 import java.io.IOException;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import eg.application.MainApp;
+import gov.esprit.domain.Person;
+import gov.esprit.service.person.PersonServiceRemote;
 
 public class FormAuth {
 
@@ -50,11 +54,11 @@ public class FormAuth {
 		submit_auth.setOnAction((event) -> {
 
 			try {
-				System.out.println("oki" + login.getText());
+				
 
-				System.out.println("oki" + password.getText());
+				
 
-				if (login.getText().equals("admin") && password.getText().equals("admin")) {
+				//if (login.getText().equals("admin") && password.getText().equals("admin")) {
 
 					MainApp.primaryStage.setTitle("Espace User");
 					FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/Dashbord.fxml"));
@@ -62,7 +66,24 @@ public class FormAuth {
 					Scene scene = new Scene(page);
 					MainApp.primaryStage.setScene(scene);
 					MainApp.primaryStage.show();
-				} else {
+					
+					
+					
+					Context context;
+					try {
+						context = new InitialContext();
+						PersonServiceRemote proxy = (PersonServiceRemote) context
+								.lookup("e-gov-ear/e-gov-ejb/PersonService!gov.esprit.service.person.PersonServiceRemote");
+						           
+						Person user = new Person();
+					
+						user=	proxy.authentificate(login.getText(), password.getText());
+						System.out.println(user.getFonction());
+						
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				/*} else {
 					 Alert alert = new Alert(AlertType.ERROR);
 			            Window dialogStage = null;
 						alert.initOwner(dialogStage);
@@ -73,7 +94,7 @@ public class FormAuth {
 			            alert.showAndWait();
 			            
 			           
-				}
+				}*/
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
