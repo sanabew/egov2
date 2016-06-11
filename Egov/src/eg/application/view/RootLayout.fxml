@@ -10,28 +10,10 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
-               <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="New">
-                     <accelerator>
-                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
-                     </accelerator>
-                  </MenuItem>
-              
-                           <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-               </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Statistics">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="Show Statistics" />  
-            </items>
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleCreateNewChild" text="Add New Child" />    
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="Retour" />
+              <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
             </items>
           </Menu>
         </menus>

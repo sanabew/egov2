@@ -1,5 +1,5 @@
 package eg.application.view;
-import eg.application.model.Person;
+import gov.esprit.domain.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
