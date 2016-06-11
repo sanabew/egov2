@@ -1,19 +1,28 @@
 package eg.application.view;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import eg.application.MainApp;
+import gov.esprit.domain.Demande;
+import gov.esprit.service.cin.DemandeCINServiceRemote;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ListeDemandeCINController {
+//	@FXML
+//	private Button retour;
 	@FXML
-	private Button retour;
+	private TableView<Demande> tableDemandeCin;
+	@FXML
+	private TableColumn<Demande, String> numero;
+	@FXML
+	private TableColumn<Demande, String> date;
     // Reference to the main application.
 	/**
      * Initializes the controller class. This method is automatically called
@@ -34,25 +43,46 @@ public class ListeDemandeCINController {
 	 */
 	@FXML
 	private void initialize() {
-
 		
-		retour.setOnAction((event) -> {
-			
-			try {
-				MainApp.primaryStage.setTitle("Espace User");
-				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteOne.fxml"));
-				AnchorPane page = (AnchorPane) loader.load();
-				Scene scene = new Scene(page);
-				MainApp.primaryStage.setScene(scene);
-				MainApp.primaryStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-	    	
-		});
+		 numero.setCellValueFactory(new PropertyValueFactory<Demande, String>("id"));
+	     date.setCellValueFactory(new PropertyValueFactory<Demande, String>("date"));
+		tableDemandeCin.getItems().setAll(parseUserList());
+		
+//		retour.setOnAction((event) -> {
+//			
+//			try {
+//				MainApp.primaryStage.setTitle("Espace User");
+//				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/FonctionaliteOne.fxml"));
+//				AnchorPane page = (AnchorPane) loader.load();
+//				Scene scene = new Scene(page);
+//				MainApp.primaryStage.setScene(scene);
+//				MainApp.primaryStage.show();
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//	    	
+//		});
 		
 		
 		
 	
+	}
+
+	private List<Demande> parseUserList() {
+		
+		Context context;
+		List<Demande> result = new ArrayList<>();
+		try {
+			context = new InitialContext();
+			DemandeCINServiceRemote demandeCinService = (DemandeCINServiceRemote) context
+					.lookup("e-gov-ear/e-gov-ejb/DemandeCINService!gov.esprit.service.cin.DemandeCINServiceRemote");
+			result = demandeCinService.findAll();
+		
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+		
 	}
 }

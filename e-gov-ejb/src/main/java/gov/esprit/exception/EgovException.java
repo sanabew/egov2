@@ -27,10 +27,10 @@ public class EgovException extends Exception {
 	 * @param errorCode
 	 * @param errorMessage
 	 */
-	public EgovException(EgovErrorCode errorCode, String...args) {
+	public EgovException(EgovErrorCode errorCode, String arg0) {
 		super();
 		this.errorCode = errorCode;
-		this.errorMessage = errorCode.name() + args;
+		this.errorMessage = errorCode.name() + arg0;
 	}
 
 	/**

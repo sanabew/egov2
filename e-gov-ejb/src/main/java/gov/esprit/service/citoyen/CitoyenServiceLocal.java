@@ -19,6 +19,11 @@ import gov.esprit.exception.EgovException;
 public interface CitoyenServiceLocal {
 
 	/**
+	 * @param citoyen
+	 */
+	public void add(Citoyen citoyen);
+	
+	/**
 	 * find the citoyen by its cin identifier.
 	 * 
 	 * @param cin
@@ -37,7 +42,7 @@ public interface CitoyenServiceLocal {
 	 * @return {@link Citoyen}
 	 * @throws EgovException 
 	 */
-	public Citoyen findByNomAndPrenomAndDateAndGouvernerat(String nom, String prenom, Date date, Gouvernerat gouvernerat) throws EgovException;
+	public Citoyen findByNomAndPrenomAndDateAndGouvernerat(String nom, String prenom, Gouvernerat gouvernerat, Date date) throws EgovException;
 
 	
 }
