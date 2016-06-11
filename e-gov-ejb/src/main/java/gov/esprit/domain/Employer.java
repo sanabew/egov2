@@ -20,6 +20,12 @@ public class Employer implements Serializable {
 	private String nom;
 	private String prenom;
 	private Fonction fonction;
+	public Employer(String nom, String prenom) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+	}
+
 	private String login;
 	private String motDePasse;
 	private static final long serialVersionUID = 1L;
@@ -50,10 +56,10 @@ public class Employer implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}   
+	@Enumerated(EnumType.STRING)
 	public Fonction getFonction() {
 		return this.fonction;
 	}
-
 	public void setFonction(Fonction fonction) {
 		this.fonction = fonction;
 	}   

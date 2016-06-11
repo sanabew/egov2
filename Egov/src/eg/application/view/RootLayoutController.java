@@ -2,10 +2,15 @@ package eg.application.view;
 
 
 
+import java.io.IOException;
+
 import eg.application.MainApp;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 
 
 /**
@@ -45,12 +50,16 @@ public class RootLayoutController {
      */
     @FXML
     private void handleAbout() {
-    	Alert alert = new Alert(AlertType.INFORMATION);
-    	alert.setTitle("Test");
-    	alert.setHeaderText("Test");
-    	alert.setContentText("Test test");
-
-    	alert.showAndWait();
+    	try {
+			MainApp.primaryStage.setTitle("Espace User");
+			FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/Dashbord.fxml"));
+			AnchorPane page = (AnchorPane) loader.load();
+			Scene scene = new Scene(page);
+			MainApp.primaryStage.setScene(scene);
+			MainApp.primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     /**
