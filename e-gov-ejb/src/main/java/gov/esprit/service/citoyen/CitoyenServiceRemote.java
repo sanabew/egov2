@@ -3,12 +3,13 @@ package gov.esprit.service.citoyen;
 import javax.ejb.Remote;
 
 import gov.esprit.domain.Citoyen;
+import gov.esprit.exception.EgovException;
 
 @Remote
 public interface CitoyenServiceRemote {
 
 	
-	public Citoyen findByCin(String cin) ;
+	public Citoyen findByCin(String cin) throws EgovException;
 
 	void addCitoyen(Citoyen c);
 

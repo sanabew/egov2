@@ -3,6 +3,8 @@ package gov.esprit.domain;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -47,6 +49,8 @@ public class Transaction implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}   
+	
+	@Enumerated(EnumType.STRING)
 	public TypeTransacrion getType() {
 		return this.type;
 	}

@@ -24,7 +24,7 @@ public interface CitoyenServiceLocal {
 	 * @return {@link Citoyen}
 	 * @throws EgovException 
 	 */
-	public Citoyen findByCin(String cin);
+	public Citoyen findByCin(String cin) throws EgovException;
 	
 	/**
 	 * find the citoyeb By:

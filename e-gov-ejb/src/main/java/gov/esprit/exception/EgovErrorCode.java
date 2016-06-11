@@ -10,12 +10,15 @@ package gov.esprit.exception;
 public enum EgovErrorCode {
 
 	UNKOWN_ERROR_CODE("0.0"),
-	
+
 	DOES_NOT_EXIST_ITEM("0.1"),
+
+	INVALID_ITEM("0.3"),
+
+	SOLDE_INSUFFISANT("0,4"), 
 	
-	INVALID_ITEM("0.3");
-	
-	
+	OPERATION_NON_AUTHORISEE("0,5");
+
 	private String errorCode;
 
 	/**
@@ -33,11 +36,11 @@ public enum EgovErrorCode {
 	}
 
 	/**
-	 * @param errorCode the errorCode to set
+	 * @param errorCode
+	 *            the errorCode to set
 	 */
 	public void setErrorCode(String errorCode) {
 		this.errorCode = errorCode;
 	}
-	
-	
+
 }

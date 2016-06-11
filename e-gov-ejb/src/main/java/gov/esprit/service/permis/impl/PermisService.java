@@ -51,7 +51,7 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
     }
     
     @Override
-	public void demanderPermis(String cin) {
+	public void demanderPermis(String cin, TypePermis type) {
 		Demande demande = new Demande();
 		Citoyen citoyen = new Citoyen();
 		try {
@@ -61,6 +61,7 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
 			demande.setDate(new Date());
 			demande.setType(TypeDemande.DEMANDE_PERMIS);
 			demande.setEtat(EtatDemande.EN_ATTENTE);
+			demande.setTypePermis(type);
 			EtapePermis etapes = new EtapePermis();
 			etapes.initialize();
 			EtapeCin etapes2 = new EtapeCin();
@@ -109,13 +110,14 @@ public class PermisService implements PermisServiceRemote, PermisServiceLocal {
 			Demande demande = demandeservice.rechercherDemande(numdemande);
 			System.out.println(demande.toString());
 			permis.setCitoyen(demande.getCitoyen());
-			permis.setType(TypePermis.BE);
+			permis.setType(demande.getTypePermis());
 			permis.setDateAttribution(new Date());
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(permis.getDateAttribution());
 			cal.add(Calendar.YEAR, 10);
 			Date d = cal.getTime();
 			permis.setDateExpiration(d);
+			
 			entitymanager.merge(permis);
 
 		} catch (Exception e) {

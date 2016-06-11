@@ -1,5 +1,7 @@
 package eg.application.view;
 
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +14,7 @@ import javax.naming.NamingException;
 import eg.application.MainApp;
 import gov.esprit.exception.EgovException;
 import gov.esprit.service.municipalite.ServiceMunicipaliteRemote;
+import gov.esprit.service.poste.PosteServiceRemote;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -24,7 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
-public class EnregistrementDivorceController {
+public class EnregistrementMariageController {
 	@FXML
 	private Button retour;
 	@FXML
@@ -49,7 +52,7 @@ public class EnregistrementDivorceController {
 	 * The constructor (is called before the initialize()-method).
 	 * @throws NamingException 
 	 */
-	public EnregistrementDivorceController() throws NamingException {
+	public EnregistrementMariageController() throws NamingException {
 
 	}
 	
@@ -59,7 +62,6 @@ public class EnregistrementDivorceController {
 	 */
 	@FXML
 	private void initialize() {
-
 		List<Integer> list = new ArrayList();
 		for(int i=1;i<32;i++){list.add(i);}
 		ObservableList<Integer> liste = FXCollections.observableArrayList(list);
@@ -82,7 +84,7 @@ public class EnregistrementDivorceController {
 				date.setDate(jour.getValue());
 				date.setMonth(mois.getValue()-1);
 				date.setYear(annee.getValue()-1900);
-				municipaliteservice.enregistrerDivorse(cin_mari.getText(), cin_marie.getText(), date);
+				municipaliteservice.enregistrerMariage(cin_mari.getText(), cin_marie.getText(), date);
 				System.out.println("ok");
 			}catch(Exception e){
 				e.printStackTrace();
@@ -97,7 +99,9 @@ public class EnregistrementDivorceController {
 				alert.show();
 				
 			}
+			
 		});
+		
 		retour.setOnAction((event) -> {
 			
 			try {
@@ -117,5 +121,4 @@ public class EnregistrementDivorceController {
 		
 	
 	}
-	
 }

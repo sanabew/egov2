@@ -35,7 +35,7 @@ public class OuvirCompteTest {
 				System.out.println("citoyen null");
 			}
 		
-		} catch (NamingException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

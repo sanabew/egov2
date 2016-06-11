@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 
 import gov.esprit.enums.EtatDemande;
 import gov.esprit.enums.TypeDemande;
+import gov.esprit.enums.TypePermis;
 
 
 /**
@@ -33,6 +34,7 @@ public class Demande implements Serializable {
 	private EtapeCin etapeCin;
 	private EtapePasseport etapePasseport;
 	private EtapePermis	etapePermis;
+	private TypePermis typePermis;
 	
 	
 	public Demande() {
@@ -102,6 +104,15 @@ public class Demande implements Serializable {
 		this.etapePermis = etapePermis;
 	}
 
+	public TypePermis getTypePermis() {
+		return typePermis;
+	}
+
+	public void setTypePermis(TypePermis typePermis) {
+		this.typePermis = typePermis;
+	}
+
+	
 	
 	
    

@@ -44,7 +44,7 @@ public class Citoyen implements Serializable {
 	
 	private List<Permis> permis;
 	private Passeport passeport;
-	private String extraitNaissance;
+	
 	private List<SanctionPenale> sanctions;
 	private List<Vehicule> vehicules;
 	private List<Compte>comptes;
@@ -92,6 +92,7 @@ public class Citoyen implements Serializable {
 	public void setDateDeces(Date dateDeces) {
 		this.dateDeces = dateDeces;
 	}
+	@Enumerated(EnumType.STRING)
 	public Sex getSex() {
 		return sex;
 	}
@@ -152,12 +153,7 @@ public class Citoyen implements Serializable {
 	public void setPasseport(Passeport passeport) {
 		this.passeport = passeport;
 	}
-	public String getExtraitNaissance() {
-		return extraitNaissance;
-	}
-	public void setExtraitNaissance(String extraitNaissance) {
-		this.extraitNaissance = extraitNaissance;
-	}
+	
 	@OneToMany(mappedBy="citoyen")
 	public List<SanctionPenale> getSanctions() {
 		return sanctions;

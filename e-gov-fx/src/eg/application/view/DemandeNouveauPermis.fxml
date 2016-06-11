@@ -18,6 +18,8 @@
         <Button fx:id="deposer_la_demande" layoutX="214.0" layoutY="384.0" mnemonicParsing="false" prefWidth="165.0" text="Deposer La Demande" />
         <CheckBox fx:id="certif_medical" layoutX="230.0" layoutY="235.0" mnemonicParsing="false" text="Certificat Médical" />
         <CheckBox fx:id="photo" layoutX="228.0" layoutY="267.0" mnemonicParsing="false" text="Photo D'identité" />
+            <Label layoutX="106.0" layoutY="322.0" text="Type Permis" />
+            <ChoiceBox id="type" fx:id="type" layoutX="230.0" layoutY="318.0" prefHeight="25.0" prefWidth="107.0" />
       </children>
     </Pane>
   </children>

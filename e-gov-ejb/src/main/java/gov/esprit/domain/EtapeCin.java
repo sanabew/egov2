@@ -7,11 +7,11 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class EtapeCin  implements Serializable {
 
-	private boolean documentsCin;
-	private boolean photosCin;
-	private boolean empreinteCin;
-	private boolean impressionCin;
-	private boolean livraisonCin;
+	private Boolean documentsCin;
+	private Boolean photosCin;
+	private Boolean empreinteCin;
+	private Boolean impressionCin;
+	private Boolean livraisonCin;
 	private static final long serialVersionUID = 1L;
 	
 	public EtapeCin() {
@@ -24,34 +24,34 @@ public class EtapeCin  implements Serializable {
 		this.setLivraison(false);
 		this.setPhotos(false);
 	}
-	public boolean isDocuments() {
+	public Boolean isDocuments() {
 		return documentsCin;
 	}
-	public void setDocuments(boolean documents) {
+	public void setDocuments(Boolean documents) {
 		this.documentsCin = documents;
 	}
-	public boolean isPhotos() {
+	public Boolean isPhotos() {
 		return photosCin;
 	}
-	public void setPhotos(boolean photos) {
+	public void setPhotos(Boolean photos) {
 		this.photosCin = photos;
 	}
-	public boolean isEmpreinte() {
+	public Boolean isEmpreinte() {
 		return empreinteCin;
 	}
-	public void setEmpreinte(boolean empreinte) {
+	public void setEmpreinte(Boolean empreinte) {
 		this.empreinteCin = empreinte;
 	}
-	public boolean isImpression() {
+	public Boolean isImpression() {
 		return impressionCin;
 	}
-	public void setImpression(boolean impression) {
+	public void setImpression(Boolean impression) {
 		this.impressionCin = impression;
 	}
-	public boolean isLivraison() {
+	public Boolean isLivraison() {
 		return livraisonCin;
 	}
-	public void setLivraison(boolean livraison) {
+	public void setLivraison(Boolean livraison) {
 		this.livraisonCin = livraison;
 	}
 	

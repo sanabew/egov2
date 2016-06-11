@@ -1,8 +1,12 @@
 package gov.esprit.business;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import gov.esprit.domain.EtapeCin;
 import gov.esprit.domain.EtapePasseport;
 import gov.esprit.domain.EtapePermis;
+import gov.esprit.enums.TypePermis;
 
 public class TraiterDemandeInfo {
 	
@@ -10,7 +14,8 @@ public class TraiterDemandeInfo {
 	private EtapeCin etapeCin;
 	private EtapePasseport etapePasseport;
 	private EtapePermis etapePermis;
-	private boolean conforme;
+	private Boolean conforme;
+	private TypePermis typePermis;
 	
 	public TraiterDemandeInfo() {
 		conforme = true;
@@ -41,13 +46,23 @@ public class TraiterDemandeInfo {
 		this.etapePermis = etapePermis;
 	}
 
-	public boolean isConforme() {
+	public Boolean isConforme() {
 		return conforme;
 	}
 
-	public void setConforme(boolean conforme) {
+	public void setConforme(Boolean conforme) {
 		this.conforme = conforme;
 	}
+
+	public TypePermis getTypePermis() {
+		return typePermis;
+	}
+	@Enumerated(EnumType.STRING)
+	public void setTypePermis(TypePermis typePermis) {
+		this.typePermis = typePermis;
+	}
+	
+	
 
 	
 }

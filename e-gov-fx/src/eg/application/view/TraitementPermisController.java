@@ -145,11 +145,11 @@ public class TraitementPermisController {
 			etapes.setPhotosPermis(nette_photo.isSelected());
 			System.out.println("debut initialisation demande info");
 			
-			
+		/*	
 			etapes2.initialize();
 			etapes3.initialize();
 			demandeInfo.setEtapeCin(etapes2);
-			demandeInfo.setEtapePasseport(etapes3);
+			demandeInfo.setEtapePasseport(etapes3);*/
 			demandeInfo.setEtapePermis(etapes);
 			demandeInfo.setConforme(irrigularite.isSelected());
 			

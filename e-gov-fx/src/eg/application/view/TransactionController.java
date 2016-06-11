@@ -9,12 +9,14 @@ import javax.naming.NamingException;
 import eg.application.MainApp;
 
 import gov.esprit.enums.TypeTransacrion;
-
+import gov.esprit.exception.EgovException;
 import gov.esprit.service.poste.PosteServiceRemote;
-
+import javafx.application.Preloader.ErrorNotification;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -57,7 +59,7 @@ public class TransactionController {
 	 */
 	@FXML
 	private void initialize() {
-
+		
 		retrait.setOnAction((event) -> {
 			versement.setSelected(false);
 		});
@@ -82,6 +84,17 @@ public class TransactionController {
 			
 			catch(Exception e){
 				e.printStackTrace();
+				Alert alert = new Alert(AlertType.ERROR);
+				
+				if( e instanceof EgovException){
+					EgovException ee = (EgovException)e;
+					System.out.println("egov exeption");
+					alert.setContentText(ee.getErrorCode().toString());
+				
+				}else{alert.setContentText("erreur inconnue");}
+				alert.show();
+				
+				
 			}
 
 		});

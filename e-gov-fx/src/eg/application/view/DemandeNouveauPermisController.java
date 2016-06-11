@@ -6,12 +6,14 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import eg.application.MainApp;
+import gov.esprit.enums.TypePermis;
 import gov.esprit.service.permis.PermisServiceRemote;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -27,6 +29,8 @@ public class DemandeNouveauPermisController {
 	private CheckBox photo; 
 	@FXML
 	private Button deposer_la_demande;
+	@FXML
+	private ChoiceBox<TypePermis> type= new ChoiceBox<>();
 	
 	
     // Reference to the main application.
@@ -49,8 +53,9 @@ public class DemandeNouveauPermisController {
 	 */
 	@FXML
 	private void initialize() {
-
+		type.getItems().setAll(TypePermis.values());
 		
+
 		retour.setOnAction((event) -> {
 			
 			try {
@@ -77,7 +82,7 @@ public class DemandeNouveauPermisController {
 				PermisServiceRemote permisservice = (PermisServiceRemote) context
 						.lookup("e-gov-ear/e-gov-ejb/PermisService!gov.esprit.service.permis.PermisServiceRemote");
 				System.out.println("resolution jndi");
-				permisservice.demanderPermis(cin.getText());
+				permisservice.demanderPermis(cin.getText(),type.getValue());
 				System.out.println("permis service");				
 
 			} catch (Exception e) {

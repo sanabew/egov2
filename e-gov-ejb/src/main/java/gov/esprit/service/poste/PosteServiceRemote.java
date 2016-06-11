@@ -12,13 +12,13 @@ import gov.esprit.exception.EgovException;
 @Remote
 public interface PosteServiceRemote {
 	
-	public Compte rechercherCompteParNum(int numeroCompte);
+	public Compte rechercherCompteParNum(int numeroCompte) throws EgovException;
 	
-	public float consulterSolde(int numeroCompte);
+	public float consulterSolde(int numeroCompte)throws EgovException;
 	
 	public void effectuerTransaction(int numeroCompte, float montant, String cin, TypeTransacrion type)throws EgovException;
 	
-	public List<Transaction> extraireReleve(int numeroCompte , String cin);
+	public List<Transaction> extraireReleve(int numeroCompte , String cin)throws EgovException;
 	
 	public int ouvrirCompte(String cin) throws EgovException, NamingException;
 	

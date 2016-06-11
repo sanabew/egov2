@@ -5,11 +5,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import gov.esprit.domain.Compte;
+import gov.esprit.exception.EgovException;
 import gov.esprit.service.poste.PosteServiceRemote;
 
 public class rechercheCompteTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws EgovException {
 		Context context;
 		Compte compte = new Compte();
 		try {

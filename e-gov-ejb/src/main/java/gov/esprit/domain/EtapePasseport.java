@@ -7,12 +7,12 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class EtapePasseport implements Serializable {
 
-	private boolean documentsPasseport;
-	private boolean photosPasseport;
-	private boolean empreintePasseport;
-	private boolean impressionPasseport;
-	private boolean livraisonPasseport;
-	private boolean timbrePasseport;
+	private Boolean documentsPasseport;
+	private Boolean photosPasseport;
+	private Boolean empreintePasseport;
+	private Boolean impressionPasseport;
+	private Boolean livraisonPasseport;
+	private Boolean timbrePasseport;
 	private static final long serialVersionUID = 1L;
 	public EtapePasseport() {
 		
@@ -26,40 +26,40 @@ public class EtapePasseport implements Serializable {
 		this.setPhotosPasseport(false);
 		this.setTimbrePasseport(false);
 	}
-	public boolean isDocumentsPasseport() {
+	public Boolean isDocumentsPasseport() {
 		return documentsPasseport;
 	}
-	public void setDocumentsPasseport(boolean documentsPasseport) {
+	public void setDocumentsPasseport(Boolean documentsPasseport) {
 		this.documentsPasseport = documentsPasseport;
 	}
-	public boolean isPhotosPasseport() {
+	public Boolean isPhotosPasseport() {
 		return photosPasseport;
 	}
-	public void setPhotosPasseport(boolean photosPasseport) {
+	public void setPhotosPasseport(Boolean photosPasseport) {
 		this.photosPasseport = photosPasseport;
 	}
-	public boolean isEmpreintePasseport() {
+	public Boolean isEmpreintePasseport() {
 		return empreintePasseport;
 	}
-	public void setEmpreintePasseport(boolean empreintePasseport) {
+	public void setEmpreintePasseport(Boolean empreintePasseport) {
 		this.empreintePasseport = empreintePasseport;
 	}
-	public boolean isImpressionPasseport() {
+	public Boolean isImpressionPasseport() {
 		return impressionPasseport;
 	}
-	public void setImpressionPasseport(boolean impressionPasseport) {
+	public void setImpressionPasseport(Boolean impressionPasseport) {
 		this.impressionPasseport = impressionPasseport;
 	}
-	public boolean isLivraisonPasseport() {
+	public Boolean isLivraisonPasseport() {
 		return livraisonPasseport;
 	}
-	public void setLivraisonPasseport(boolean livraisonPasseport) {
+	public void setLivraisonPasseport(Boolean livraisonPasseport) {
 		this.livraisonPasseport = livraisonPasseport;
 	}
-	public boolean isTimbrePasseport() {
+	public Boolean isTimbrePasseport() {
 		return timbrePasseport;
 	}
-	public void setTimbrePasseport(boolean timbrePasseport) {
+	public void setTimbrePasseport(Boolean timbrePasseport) {
 		this.timbrePasseport = timbrePasseport;
 	}
 	

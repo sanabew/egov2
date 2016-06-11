@@ -33,7 +33,7 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
     }
 
 	@Override
-	public Citoyen findByCin(String cin) {
+	public Citoyen findByCin(String cin) throws EgovException {
 	
 		try {
 		
@@ -44,10 +44,10 @@ public class CitoyenService implements CitoyenServiceRemote, CitoyenServiceLocal
 			return (Citoyen) query.getSingleResult();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-			//throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_CITOYEN_WITH_CIN: " + cin);
+			
+			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_CITOYEN_WITH_CIN: " + cin);
 		}
-		return null;
+		
 	}
 
 	@Override

@@ -24,12 +24,7 @@ public class FonctionaliteOneController {
 	private Button enregistrement_mariage;
 	@FXML
 	private Button enrigstrement_divorce;
-	@FXML
-	private Button abn_transport;
-	@FXML
-	private Button compte_postal;
-	@FXML
-	private Button transaction;
+
 	@FXML
 	private Button btn_back;
 
@@ -111,48 +106,7 @@ public class FonctionaliteOneController {
 			}
 
 		});
-		abn_transport.setOnAction((event) -> {
-
-			try {
-				MainApp.primaryStage.setTitle("Espace User");
-				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/AbonnementTransport.fxml"));
-				AnchorPane page = (AnchorPane) loader.load();
-				Scene scene = new Scene(page);
-				MainApp.primaryStage.setScene(scene);
-				MainApp.primaryStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		});
-		compte_postal.setOnAction((event) -> {
-
-			try {
-				MainApp.primaryStage.setTitle("Espace User");
-				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/CreationComptePostal.fxml"));
-				AnchorPane page = (AnchorPane) loader.load();
-				Scene scene = new Scene(page);
-				MainApp.primaryStage.setScene(scene);
-				MainApp.primaryStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		});
-		transaction.setOnAction((event) -> {
-
-			try {
-				MainApp.primaryStage.setTitle("Espace User");
-				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/Transaction.fxml"));
-				AnchorPane page = (AnchorPane) loader.load();
-				Scene scene = new Scene(page);
-				MainApp.primaryStage.setScene(scene);
-				MainApp.primaryStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		});
+	
 
 	}
 }

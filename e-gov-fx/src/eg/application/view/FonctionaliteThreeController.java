@@ -60,8 +60,23 @@ public class FonctionaliteThreeController {
 		ouverture_compte.setOnAction((event) -> {
 
 			try {
-				MainApp.primaryStage.setTitle("Demande CIN");
+				MainApp.primaryStage.setTitle("Creation compte postal");
 				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/CreationComptePostal.fxml"));
+				AnchorPane page = (AnchorPane) loader.load();
+				Scene scene = new Scene(page);
+				MainApp.primaryStage.setScene(scene);
+				MainApp.primaryStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		});
+		
+		releve.setOnAction((event) -> {
+
+			try {
+				MainApp.primaryStage.setTitle("releve compte postal");
+				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/ExtraireComptePostal.fxml"));
 				AnchorPane page = (AnchorPane) loader.load();
 				Scene scene = new Scene(page);
 				MainApp.primaryStage.setScene(scene);
@@ -86,20 +101,7 @@ public class FonctionaliteThreeController {
 			}
 
 		});
-		releve.setOnAction((event) -> {
-
-			try {
-				MainApp.primaryStage.setTitle("Declaration Perte CIN");
-				FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("view/ExtraireComptePostal.fxml"));
-				AnchorPane page = (AnchorPane) loader.load();
-				Scene scene = new Scene(page);
-				MainApp.primaryStage.setScene(scene);
-				MainApp.primaryStage.show();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		});
+		
 		
 	}
 }

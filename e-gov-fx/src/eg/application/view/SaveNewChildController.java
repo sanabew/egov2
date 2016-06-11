@@ -1,27 +1,35 @@
 package eg.application.view;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
-
 import eg.application.MainApp;
-import eg.application.util.DateUtil;
 import gov.esprit.domain.Citoyen;
+import gov.esprit.domain.ContratMariage;
+import gov.esprit.enums.Civilite;
+import gov.esprit.enums.Gouvernerat;
+import gov.esprit.enums.Sex;
+import gov.esprit.exception.EgovException;
+import gov.esprit.service.citoyen.CitoyenServiceRemote;
+import gov.esprit.service.municipalite.ServiceMunicipaliteRemote;
 import gov.esprit.service.user.UserServiceRemote;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
@@ -42,13 +50,18 @@ public class SaveNewChildController {
 	@FXML
 	private TextField prenom_new_ne;
 	@FXML
-	private TextField lieu_naissance;
+	private ChoiceBox<Gouvernerat> gouvernerat;
 	@FXML
 	private TextField date_naissance;
 	@FXML
-	private RadioButton radio_homme;
+	private ChoiceBox<Integer> jour;
 	@FXML
-	private RadioButton radio_femme;
+	private ChoiceBox<Integer> mois;
+	@FXML
+	private ChoiceBox<Integer> annee;
+	@FXML
+	private ChoiceBox<Sex> sex;
+	
 	@EJB
 	private UserServiceRemote userservice;
 	
@@ -59,33 +72,7 @@ public class SaveNewChildController {
 	 */
 
 
-	 private boolean isInputValid() {
-	        String errorMessage = "";
-
-	        if (date_naissance.getText() == null || date_naissance.getText().length() == 0) {
-	            errorMessage += "No valid birthday!\n";
-	        } else {
-	            if (!DateUtil.validDate(date_naissance.getText())) {
-	                errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";
-	            }
-	        }
-
-	        if (errorMessage.length() == 0) {
-	            return true;
-	        } else {
-	            // Show the error message.
-	            Alert alert = new Alert(AlertType.ERROR);
-	            Window dialogStage = null;
-				alert.initOwner(dialogStage);
-	            alert.setTitle("Invalid Fields");
-	            alert.setHeaderText("Please correct invalid fields");
-	            alert.setContentText(errorMessage);
-	            
-	            alert.showAndWait();
-	            
-	            return false;
-	        }
-	    }
+	 
 	/**
 	 * The constructor (is called before the initialize()-method).
 	 * 
@@ -101,7 +88,71 @@ public class SaveNewChildController {
 	 */
 	@FXML
 	private void initialize() {
-
+		
+		
+		
+		List<Integer> list = new ArrayList();
+		for(int i=1;i<32;i++){list.add(i);}
+		ObservableList<Integer> liste = FXCollections.observableArrayList(list);
+		jour.setItems(liste);
+		List<Integer> listm = new ArrayList();
+		for(int i=1;i<13;i++){listm.add(i);}
+		ObservableList<Integer> listeM = FXCollections.observableArrayList(listm);
+		mois.setItems(listeM);
+		List<Integer> lista = new ArrayList();
+		for(int i=1950;i<2016;i++){lista.add(i);}
+		ObservableList<Integer> listeA = FXCollections.observableArrayList(lista);
+		annee.setItems(listeA);
+		
+		sex.getItems().setAll(Sex.values());
+		gouvernerat.getItems().setAll(Gouvernerat.values());
+		
+		
+		
+		btn_verif.setOnAction((event)->{
+			Sex sexp;
+			Sex sexm;
+			List<ContratMariage> contrat = new ArrayList();
+			try{
+			
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("vérifier les données saisies. ");
+			
+			Context context2;
+			context2 = new InitialContext();	
+			CitoyenServiceRemote citoyenservice = (CitoyenServiceRemote) context2
+					.lookup("e-gov-ear/e-gov-ejb/CitoyenService!gov.esprit.service.citoyen.CitoyenServiceRemote");
+			sexp = citoyenservice.findByCin(cin_pere.getText()).getSex();
+			sexm = citoyenservice.findByCin(cin_mere.getText()).getSex();
+			
+			Context context;
+			context = new InitialContext();	
+			ServiceMunicipaliteRemote municipaliteservice = (ServiceMunicipaliteRemote) context
+					.lookup("e-gov-ear/e-gov-ejb/ServiceMunicipalite!gov.esprit.service.municipalite.ServiceMunicipaliteRemote");
+			contrat = municipaliteservice.rechercherContrat(cin_pere.getText(), cin_mere.getText());
+			
+			
+			
+			
+			if((sexp!=Sex.HOMME)||(sexm!=Sex.FEMME)){alert.setContentText(alert.getContentText()+" sex des parents incorrect");}
+			if(contrat.isEmpty()){alert.setContentText(alert.getContentText()+" aucun contrat de mariage trouvé");}
+			
+			if((sexp!=Sex.HOMME)||(sexm!=Sex.FEMME)||(contrat.isEmpty()))
+			{alert.show();
+			}else{
+				n_contrat.setText(String.valueOf(contrat.get(0).getId()));
+				btn_verif.setVisible(true);
+				}
+			
+			}catch(Exception e){
+				
+				
+			}
+			
+			
+		});
+		
+		
 		retour.setOnAction((event) -> {
 
 			try {
@@ -117,44 +168,52 @@ public class SaveNewChildController {
 
 		});
 
-		btn_verif.setOnAction((event) -> {
-
-			System.out.println("oki" + cin_pere.getText());
-			System.out.println("oki" + cin_mere.getText());
-			System.out.println("oki" + n_contrat.getText());
-
-		});
+		
 		btn_enregistre.setOnAction((event) -> {
 
-			System.out.println("oki" + radio_homme.getText());
-			System.out.println("oki" + prenom_new_ne.getText());
-			System.out.println("oki" + lieu_naissance.getText());
-			System.out.println("oki" + date_naissance.getText());
-
+			try{
+			Citoyen c = new Citoyen();
+			Context context2;
+			context2 = new InitialContext();	
+			CitoyenServiceRemote citoyenservice = (CitoyenServiceRemote) context2
+					.lookup("e-gov-ear/e-gov-ejb/CitoyenService!gov.esprit.service.citoyen.CitoyenServiceRemote");
+			Citoyen pere = citoyenservice.findByCin(cin_pere.getText());
+			c.setPere(pere);
+			Citoyen mere = citoyenservice.findByCin(cin_mere.getText());
+			c.setMere(mere);
+			Date date = new Date();
+		
+			
+			date.setDate(jour.getValue());
+			date.setMonth(mois.getValue()-1);
+			date.setYear(annee.getValue()-1900);
+			c.setDateNaissance(date);
+			c.setSex(sex.getValue());
+			c.setPrenom(prenom_new_ne.getText());
+			c.setNom(pere.getNom());
+			c.setGouvernerat(gouvernerat.getValue());
+			c.setCivilite(Civilite.CELIBATAIRE);
+			
 			Context context;
-			try {
-				context = new InitialContext();
-				UserServiceRemote proxy = (UserServiceRemote) context
-						.lookup("e-gov-ear/e-gov-ejb/UserService!gov.esprit.service.user.UserServiceRemote");
-
-				Citoyen user = new Citoyen();
-				user.setNom(prenom_new_ne.getText());
-
-				user.setPrenom("prenom");
-
+			context = new InitialContext();	
+			ServiceMunicipaliteRemote municipaliteservice = (ServiceMunicipaliteRemote) context
+					.lookup("e-gov-ear/e-gov-ejb/ServiceMunicipalite!gov.esprit.service.municipalite.ServiceMunicipaliteRemote");
+			municipaliteservice.enregistreNouvNee(c);
+			
+			}catch(Exception e ){
 				
-				if(isInputValid()){
-					DateFormat format = new SimpleDateFormat("dd.mm.yyyy", Locale.ENGLISH);
-					Date date = format.parse(date_naissance.getText());
-					user.setDateNaissance(date);
-				proxy.addUser(user);
-				}
-			} catch (Exception e) {
 				e.printStackTrace();
+				Alert alert = new Alert(AlertType.ERROR);
+				
+				if( e instanceof EgovException){
+					EgovException ee = (EgovException)e;
+					System.out.println("egov exeption");
+					alert.setContentText(ee.getErrorCode().toString());
+				
+				}else{alert.setContentText("erreur inconnue");}
+				alert.show();
+				
 			}
-			/**
-		     * Called when the user clicks ok.
-		     */
 		    
 		});
 

@@ -10,6 +10,8 @@ import gov.esprit.service.municipalite.ServiceMunicipaliteLocal;
 import gov.esprit.service.municipalite.ServiceMunicipaliteRemote;
 
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
@@ -39,7 +41,7 @@ public class ServiceMunicipalite implements ServiceMunicipaliteRemote, ServiceMu
 
 	}
 
-	public void enregistrerMariage(String cin1, String cin2) throws EgovException {
+	public void enregistrerMariage(String cin1, String cin2, Date date) throws EgovException {
 
 		Citoyen mari = new Citoyen();
 		Citoyen mariee = new Citoyen();
@@ -49,13 +51,14 @@ public class ServiceMunicipalite implements ServiceMunicipaliteRemote, ServiceMu
 
 		if (mariee.getSex() != mari.getSex()) {
 			if ((mari.getCivilite() == Civilite.CELIBATAIRE) && (mariee.getCivilite() == Civilite.CELIBATAIRE)) {
+				System.out.println("oooo");
 				ContratMariage contrat = new ContratMariage();
-				contrat.setDate(Calendar.getInstance().getTime());
+				contrat.setDate(date);
 				contrat.setMari(mari);
 				contrat.setMariee(mariee);
 				mari.setCivilite(Civilite.MARIE);
 				mariee.setCivilite(Civilite.MARIE);
-				entitymanager.persist(contrat);
+				entitymanager.merge(contrat);
 				entitymanager.merge(mari);
 				entitymanager.merge(mariee);
 			} else {
@@ -66,8 +69,9 @@ public class ServiceMunicipalite implements ServiceMunicipaliteRemote, ServiceMu
 		}
 	}
 
-	public ContratMariage rechercherContrat(String cinH, String cinF) throws EgovException {
-		ContratMariage contrat = new ContratMariage();
+	public List<ContratMariage> rechercherContrat(String cinH, String cinF) throws EgovException {
+		
+		
 		Citoyen mari = new Citoyen();
 		Citoyen mariee = new Citoyen();
 
@@ -75,27 +79,29 @@ public class ServiceMunicipalite implements ServiceMunicipaliteRemote, ServiceMu
 		mariee = citoyenservice.findByCin(cinF);
 
 		Query query = entitymanager
-				.createQuery("select c from ContratMariage c  where c.mari=:mari and c.mariee=:mariee");
+				.createQuery("select c from ContratMariage c  where c.mari=:mari AND c.mariee=:mariee");
 		query.setParameter("mari", mari);
 		query.setParameter("mariee", mariee);
-		contrat = (ContratMariage) query.getSingleResult();
+		List<ContratMariage> contrat = query.getResultList();
+	
 
 		return contrat;
 
 	}
 
-	public void enregistrerDivorse(String cinH, String cinF) throws EgovException {
+	public void enregistrerDivorse(String cinH, String cinF, Date date) throws EgovException {
 
 		Citoyen mari = new Citoyen();
 		Citoyen mariee = new Citoyen();
 		ContratMariage contrat = new ContratMariage();
-		contrat = rechercherContrat(cinH, cinF);
+		contrat = rechercherContrat(cinH, cinF).get(0);
 		if (contrat != null) {
 			mari = contrat.getMari();
 			mariee = contrat.getMariee();
 			if (contrat.getDateDivorce() == null) {
 
-				contrat.setDateDivorce(Calendar.getInstance().getTime());
+				contrat.setDateDivorce(date);
+				
 				entitymanager.merge(contrat);
 				mari.setCivilite(Civilite.DIVORCE);
 				mariee.setCivilite(Civilite.DIVORCE);
@@ -108,5 +114,16 @@ public class ServiceMunicipalite implements ServiceMunicipaliteRemote, ServiceMu
 			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_MARRIAGE_CONTRACT");
 		}
 	}
+	
+	@Override
+	public void enregistreNouvNee(Citoyen c)throws Exception {
+		
+		entitymanager.persist(c);
+		
+	}
+	
+	
+
+	
 
 }

@@ -19,6 +19,7 @@ import gov.esprit.exception.EgovException;
 import gov.esprit.service.citoyen.CitoyenServiceRemote;
 import gov.esprit.service.poste.PosteServiceLocal;
 import gov.esprit.service.poste.PosteServiceRemote;
+import javafx.collections.ObservableList;
 
 
 @Stateless
@@ -37,7 +38,7 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 		// TODO Auto-generated constructor stub
 	}
 	@Override
-	public Compte rechercherCompteParNum(int numeroCompte) {
+	public Compte rechercherCompteParNum(int numeroCompte) throws EgovException {
 			
 		try {
 			
@@ -48,15 +49,15 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 			return (Compte) query.getSingleResult();
 			
 		} catch (Exception e) {
-			e.printStackTrace();
-			//throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM, "_CITOYEN_WITH_CIN: " + cin);
+			
+			throw new EgovException(EgovErrorCode.DOES_NOT_EXIST_ITEM,"COMPTE");
 		}
-		return null;
+		
 	}
 	
 	
 	@Override
-	public float consulterSolde(int numeroCompte){
+	public float consulterSolde(int numeroCompte) throws EgovException{
 		Compte compte = rechercherCompteParNum(numeroCompte);
 		return compte.getSolde();
 	}
@@ -83,27 +84,29 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 					compte.setSolde(solde);
 					
 				}else{
-					throw new EgovException(EgovErrorCode.INVALID_ITEM, "_MONTANT_NON_AUTHORISE");
+					throw new EgovException(EgovErrorCode.SOLDE_INSUFFISANT);
 				}
 			}
 			entityManager.merge(transaction);
 			entityManager.persist(compte);
 		}else{
-			throw new EgovException(EgovErrorCode.INVALID_ITEM, "_CIN: " + cin);
+			throw new EgovException(EgovErrorCode.OPERATION_NON_AUTHORISEE);
 		}
 	}
 	
 	@Override
-	public List<Transaction> extraireReleve(int numeroCompte, String cin) {
+	public List<Transaction> extraireReleve(int numeroCompte, String cin) throws EgovException {
 		
 		Compte compte = rechercherCompteParNum(numeroCompte);
 		if(compte.getProprietaire().getCin().equals(cin)){
 
-		Query query = entityManager.createQuery("select t from Transaction t  where t.compte.numero = :numeroCompte ");
+		Query query = entityManager.createQuery("select t from Transaction t  where t.compte.id = :numeroCompte ");
 		query.setParameter("numeroCompte", numeroCompte);
-		return query.getResultList();
-		}
-		return null;
+		return (List<Transaction>)query.getResultList();
+		}else{
+			throw new  EgovException(EgovErrorCode.OPERATION_NON_AUTHORISEE);
+			}
+		
 	}
 	@Override
 	public int ouvrirCompte(String cin) throws EgovException, NamingException{
