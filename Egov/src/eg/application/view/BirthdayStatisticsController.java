@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import eg.application.model.Person;
+import gov.esprit.domain.Person;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,7 +50,7 @@ public class BirthdayStatisticsController {
      */
     public void setPersonData(List<Person> persons) {
         // Count the number of people having their birthday in a specific month.
-        int[] monthCounter = new int[12];
+      /*  int[] monthCounter = new int[12];
         for (Person p : persons) {
             int month = p.getBirthday().getMonthValue() - 1;
             monthCounter[month]++;
@@ -63,6 +63,6 @@ public class BirthdayStatisticsController {
             series.getData().add(new XYChart.Data<>(monthNames.get(i), monthCounter[i]));
         }
 
-        barChart.getData().add(series);
+        barChart.getData().add(series);*/
     }
 }
