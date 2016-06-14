@@ -9,10 +9,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import gov.esprit.domain.Citoyen;
+import gov.esprit.domain.Person;
 import gov.esprit.enums.Civilite;
 import gov.esprit.enums.Gouvernerat;
 import gov.esprit.enums.Sex;
 import gov.esprit.service.citoyen.CitoyenServiceRemote;
+import gov.esprit.service.person.PersonServiceRemote;
 
 public class AjoutCitoyensTest {
 
@@ -60,6 +62,13 @@ public class AjoutCitoyensTest {
 		citoyen4.setSex(Sex.HOMME);
 		citoyen4.setCivilite(Civilite.CELIBATAIRE);
 		
+		Person admin = new Person();
+		admin.setFirstName("admin");
+		admin.setLastName("admin");
+		admin.setLogin("admin");
+		admin.setMotDePasse("admin");
+		admin.setFonction("ADMIN");
+		
 		
 		CitoyenServiceRemote citoyenservice;
 
@@ -73,6 +82,14 @@ public class AjoutCitoyensTest {
 			citoyenservice.add(citoyen2);
 			citoyenservice.add(citoyen3);
 			citoyenservice.add(citoyen4);
+			
+			context = new InitialContext();
+			PersonServiceRemote proxy = (PersonServiceRemote) context
+					.lookup("e-gov-ear/e-gov-ejb/PersonService!gov.esprit.service.person.PersonServiceRemote");
+			           
+			
+		
+			proxy.addUser(admin);	
 			
 		
 		} catch (NamingException e) {

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="345.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.application.view.EnregistrementDivorceController">
+  <children>
+    <Pane layoutX="35.0" layoutY="26.0" prefHeight="289.0" prefWidth="531.0">
+      <children>
+        <Label layoutX="189.0" layoutY="25.0" prefHeight="26.9609375" prefWidth="211.0" text="Enregistrement Divorse" />
+        <TextField id="" fx:id="cin_mari" layoutX="231.0" layoutY="76.0" prefWidth="200.0" promptText="Cin Marie" />
+        <TextField id="" fx:id="cin_marie" layoutX="231.0" layoutY="115.0" prefWidth="200.0" promptText="Cin Mariée" />
+        <Button fx:id="btn_enregistre" layoutX="288.0" layoutY="247.0" mnemonicParsing="false" prefWidth="85.0" text="Enregistrer" />
+        <Label layoutX="21.0" layoutY="76.0" prefHeight="26.9609375" prefWidth="130.0" text="Cin Marie" />
+        <Label layoutX="21.0" layoutY="113.0" prefHeight="26.9609375" prefWidth="130.0" text="Cin Mariée" />
+        <Label layoutX="21.0" layoutY="150.0" prefHeight="27.0" prefWidth="188.0" text="Date de Mariage DD-MM-AAA" />
+        <Button id="btn_enregistre" fx:id="retour" layoutX="417.0" layoutY="31.0" mnemonicParsing="false" prefWidth="85.0" text="Retour" />
+            <ChoiceBox fx:id="jour" layoutX="231.0" layoutY="151.0" prefHeight="25.0" prefWidth="54.0" />
+            <ChoiceBox fx:id="mois" layoutX="294.0" layoutY="151.0" prefHeight="25.0" prefWidth="54.0" />
+            <ChoiceBox fx:id="annee" layoutX="356.0" layoutY="151.0" prefHeight="25.0" prefWidth="74.0" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>
