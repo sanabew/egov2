@@ -1,12 +1,11 @@
 package eg.application.view;
 
 import eg.application.MainApp;
-
+import eg.application.NotifClient;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-
+import java.net.URISyntaxException;
 import javax.naming.NamingException;
-
+import javax.websocket.DeploymentException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,10 +19,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
 
 
-public class DashbordController {
+public class DashbordController  {
 
-	@FXML
-	private TextArea output_textarea;
 	@FXML
 	private TextField password;
 	@FXML
@@ -40,6 +37,13 @@ public class DashbordController {
 	private Button btn_logout;
 	@FXML
 	private Button gestionuser;
+	@FXML
+	private TextArea output_textarea;
+	@FXML
+	private Button send;
+	@FXML
+	private TextField saisie_notif;
+
 
 	// Reference to the main application.
 	/**
@@ -59,13 +63,27 @@ public class DashbordController {
 	/**
 	 * Initializes the controller class. This method is automatically called
 	 * after the fxml file has been loaded.
+	 * @throws IOException 
+	 * @throws DeploymentException 
+	 * @throws URISyntaxException 
 	 */
 	@FXML
-	private void initialize() {
+	private void initialize() throws URISyntaxException, DeploymentException, IOException {
+		
+		/*
 		output_textarea.appendText("\n Bienvenu \n");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yy   H:M");
 		String laDateDuJour = sdf.format(new java.util.Date());
 		output_textarea.appendText("Ajourd'hui le :" + laDateDuJour);
+		}*/
+	
+		final NotifClient notifclien = new NotifClient(output_textarea);
+        
+		output_textarea.setEditable(false);
+		
+		output_textarea.setOnMouseClicked(event->{
+			output_textarea.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
+		});
 		
 		btn_logout.setOnAction((event) -> {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -182,7 +200,61 @@ public class DashbordController {
 			}
 
 		});
+		
+		send.setOnAction((event) -> {
+		
+			
+				try {
+					notifclien.sendNotification(saisie_notif.getText());
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			
+		});
+		
+			
+		}
+	
+	
+	/*Startup
+	class verifierNotif extends Service{
+		private TableView table;
+		private CountDownLatch messageLatch = null;
+		
+		public verifierNotif(TableView table) {
+			super();
+			this.table = table;
+		}
+
+		@Override
+		protected Task createTask() {
+			 Task<Void> task = new Task<Void>() {
+				@Override
+				 protected Void call() throws Exception{
+					messageLatch = new CountDownLatch(1);
+					try {
+                        URI clientURI = new URI("ws://localhost:8080/e-gov-web/notif");
+//            ClientContainer cliContainer = ContainerProvider.getClientContainer();
+                        ClientManager cliContainer = org.glassfish.tyrus.client.ClientManager.createClient();
+ 
+                        ClientEndpointConfiguration clientConfig = new DefaultClientConfiguration();
+                        cliContainer.connectToServer(new NotifClient(table), clientURI);
+                        messageLatch.await(1, TimeUnit.SECONDS);
+                    } catch (DeploymentException | URISyntaxException | InterruptedException ex) {
+                        Logger.getLogger(DashbordController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+					 return null;
+				}
+				 };
+			 
+			return task;
+		}
 
 	}
+
+*/
+	
 
 }

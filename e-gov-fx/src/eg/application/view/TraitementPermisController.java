@@ -1,12 +1,16 @@
 package eg.application.view;
 
 import java.io.IOException;
+import java.net.URI;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.websocket.ContainerProvider;
+import javax.websocket.WebSocketContainer;
 
 import eg.application.MainApp;
+import eg.application.NotifClient;
 import gov.esprit.business.TraiterDemandeInfo;
 import gov.esprit.domain.Demande;
 import gov.esprit.domain.EtapeCin;
@@ -170,6 +174,12 @@ public class TraitementPermisController {
 							&& demande.getEtapePermis().isExamenPermis() && demande.getEtapePermis().isPhotosPermis()) {
 						demande.setEtat(EtatDemande.PRET);
 						servicepermis.attribuerPermis(demande.getId());
+						
+						NotifClient test = new NotifClient();
+						WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+						container.connectToServer(test, new URI("ws://localhost:8080/e-gov-web/notif"));
+						test.sendNotification("Permis pret");
+
 					} else {
 						demande.setEtat(EtatDemande.EN_COURS);
 					}

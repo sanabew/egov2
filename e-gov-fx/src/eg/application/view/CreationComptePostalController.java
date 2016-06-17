@@ -2,10 +2,17 @@ package eg.application.view;
 
 
 import java.io.IOException;
+import java.net.URI;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.websocket.ClientEndpoint;
+import javax.websocket.ContainerProvider;
+import javax.websocket.WebSocketContainer;
+
 import eg.application.MainApp;
+import eg.application.NotifClient;
 import gov.esprit.domain.Citoyen;
 import gov.esprit.service.citoyen.CitoyenServiceRemote;
 import gov.esprit.service.poste.PosteServiceRemote;
@@ -42,6 +49,7 @@ public class CreationComptePostalController {
 	 * 
 	 * @throws NamingException
 	 */
+	
 	public CreationComptePostalController() throws NamingException {
 
 	}
@@ -95,6 +103,11 @@ public class CreationComptePostalController {
 
 				int numeroCompte = posteservice.ouvrirCompte(cin.getText());
 				num_compte.setText(String.valueOf(numeroCompte));
+				
+				NotifClient test = new NotifClient();
+				WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+				container.connectToServer(test, new URI("ws://localhost:8080/e-gov-web/notif"));
+				test.sendNotification("Compte créé : N° "+String.valueOf(numeroCompte));
 
 			} catch (Exception e) {
 
