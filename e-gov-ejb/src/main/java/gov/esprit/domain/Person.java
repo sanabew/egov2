@@ -26,7 +26,7 @@ public class Person implements Serializable {
     private  String street;
     private  Integer postalCode;
     private  String city;
-   
+    private String photo;
 	private String fonction;
 	private String login;
 	private String motDePasse;
@@ -121,6 +121,14 @@ public class Person implements Serializable {
 
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
    
 }

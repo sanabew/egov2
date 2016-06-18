@@ -151,7 +151,7 @@ public class MainApp extends Application {
 	 *            the person object to be edited
 	 * @return true if the user clicked OK, false otherwise.
 	 */
-	public boolean showPersonEditDialog(Person person) {
+	public boolean showPersonEditDialog(Person person,boolean isEdit) {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
@@ -169,7 +169,7 @@ public class MainApp extends Application {
 			// Set the person into the controller.
 			PersonEditDialogController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
-			controller.setPerson(person);
+			controller.setPerson(person,isEdit);
 
 			// Set the dialog icon.
 			dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));

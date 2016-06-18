@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="io.uploader.drive.gui.controller.AboutViewController">
+  <padding>
+    <Insets bottom="10.0" left="25.0" right="25.0" top="25.0" />
+  </padding>
+  <Text fx:id="titleField" style="-fx-font: NORMAL 20 Tahoma;" text="" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+  <VBox alignment="TOP_CENTER" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+    <ImageView fx:id="imgField" />
+  </VBox>
+  <Text scaleX="1.1689751324495534" scaleY="1.0" style="-fx-font: NORMAL 15 Tahoma;" text="    E-Gov" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+  <HBox alignment="BOTTOM_CENTER" spacing="10.0" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+    <Button onAction="#onClose" prefWidth="100.0" text="Close" />
+  </HBox>
+</GridPane>
