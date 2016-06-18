@@ -21,7 +21,7 @@ public class AbonnementTransport implements Serializable {
 	private TypeHoraire horaire;
 	private int prix;
 	private static final long serialVersionUID = 1L;
-	private Citoyen citoyen;
+	//private Citoyen citoyen;
 	
 	public AbonnementTransport() {
 		super();
@@ -56,13 +56,13 @@ public class AbonnementTransport implements Serializable {
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name="citoyenId",referencedColumnName="id")
 	public Citoyen getCitoyen() {
 		return citoyen;
 	}
 	public void setCitoyen(Citoyen citoyen) {
 		this.citoyen = citoyen;
-	}
+	}*/
    
 }

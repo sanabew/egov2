@@ -69,7 +69,12 @@ public class AjoutCitoyensTest {
 		admin.setMotDePasse("admin");
 		admin.setFonction("ADMIN");
 		
-		
+		Person agent = new Person();
+		agent.setFirstName("agent");
+		agent.setLastName("agent");
+		agent.setLogin("agent");
+		agent.setMotDePasse("agent");
+		agent.setFonction("AGENT_MIN_INT");
 		CitoyenServiceRemote citoyenservice;
 
 		try {
@@ -90,7 +95,7 @@ public class AjoutCitoyensTest {
 			
 		
 			proxy.addUser(admin);	
-			
+			proxy.addUser(agent);
 		
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block

@@ -49,7 +49,7 @@ public class Citoyen implements Serializable {
 	private List<Vehicule> vehicules;
 	private List<Compte>comptes;
 	private List<Demande>demandes;
-	private List<AbonnementTransport> abonnementTransports;
+	//private List<AbonnementTransport> abonnementTransports;
 	
 	
 	private String cin;
@@ -132,13 +132,13 @@ public class Citoyen implements Serializable {
 	public void setMere(Citoyen mere) {
 		this.mere = mere;
 	}
-	@OneToMany(mappedBy="citoyen")
+	/*@OneToMany(mappedBy="citoyen")
 	public List<AbonnementTransport> getAbonnementTransports() {
 		return abonnementTransports;
 	}
 	public void setAbonnementTransports(List<AbonnementTransport> abonnementTransports) {
 		this.abonnementTransports = abonnementTransports;
-	}
+	}*/
 	@OneToMany(mappedBy="citoyen")
 	public List<Permis> getPermis() {
 		return permis;

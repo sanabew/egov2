@@ -7,19 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" styleClass="background" stylesheets="@DarkTheme.css" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eg.application.view.AbonnementTransportController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eg.application.view.AbonnementTransportController">
   <children>
-    <Pane layoutX="36.0" layoutY="26.0" prefHeight="367.0" prefWidth="531.0">
+    <Pane layoutX="35.0" layoutY="37.0" prefHeight="367.0" prefWidth="531.0">
       <children>
         <Label layoutX="189.0" layoutY="25.0" prefHeight="26.9609375" prefWidth="211.0" text="Abonnement Transport" />
-        <TextField id="" fx:id="cin" layoutX="166.0" layoutY="76.0" prefWidth="200.0" promptText="Cin" />
-        <TextField id="" fx:id="nom" layoutX="166.0" layoutY="115.0" prefWidth="200.0" promptText="Nom" />
-        <TextField id="" fx:id="prenom" layoutX="166.0" layoutY="155.0" prefWidth="200.0" promptText="Prenom" />
-        <Button id="btn_enregistre" fx:id="btn_valider" layoutX="288.0" layoutY="296.0" mnemonicParsing="false" prefWidth="85.0" text="Valider" />
-        <Label layoutX="21.0" layoutY="76.0" prefHeight="26.9609375" prefWidth="130.0" text="Cin" />
-        <Label layoutX="21.0" layoutY="113.0" prefHeight="26.9609375" prefWidth="130.0" text="Nom" />
-        <Label layoutX="21.0" layoutY="150.0" prefHeight="26.9609375" prefWidth="130.0" text="Prenom" />
-        <ChoiceBox fx:id="type_trajet" layoutX="151.0" layoutY="189.0" prefWidth="230.0">
+        <Button id="btn_enregistre" fx:id="btn_valider" layoutX="224.0" layoutY="236.0" mnemonicParsing="false" prefWidth="85.0" text="Valider" />
+        <ChoiceBox fx:id="type_trajet" layoutX="183.0" layoutY="108.0" prefHeight="25.0" prefWidth="211.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -28,7 +22,7 @@
             </FXCollections>
           </items>
         </ChoiceBox>
-        <ChoiceBox fx:id="type_horaire" layoutX="151.0" layoutY="230.0" prefHeight="21.9609375" prefWidth="230.0">
+        <ChoiceBox fx:id="type_horaire" layoutX="183.0" layoutY="150.0" prefHeight="25.0" prefWidth="211.0">
           <items>
             <FXCollections fx:factory="observableArrayList">
               <String fx:value="Item 1" />
@@ -37,11 +31,13 @@
             </FXCollections>
           </items>
         </ChoiceBox>
-        <TextField id="date_naissance" fx:id="prix" layoutX="166.0" layoutY="266.0" prefWidth="200.0" promptText=".TND" text="" />
-        <Label layoutX="21.0" layoutY="266.0" prefHeight="26.9609375" prefWidth="130.0" text="Prix" />
-        <Label layoutX="21.0" layoutY="191.0" prefHeight="26.9609375" prefWidth="130.0" text="Type Trajet" />
-        <Label layoutX="21.0" layoutY="233.0" prefHeight="26.9609375" prefWidth="130.0" text="Type Horaire" />
+        <TextField id="date_naissance" fx:id="prix" layoutX="189.0" layoutY="182.0" prefWidth="200.0" promptText=".TND" text="" />
+        <Label layoutX="44.0" layoutY="182.0" prefHeight="26.9609375" prefWidth="130.0" text="Prix" />
+        <Label layoutX="44.0" layoutY="107.0" prefHeight="26.9609375" prefWidth="130.0" text="Type Trajet" />
+        <Label layoutX="44.0" layoutY="149.0" prefHeight="26.9609375" prefWidth="130.0" text="Type Horaire" />
         <Button id="btn_enregistre" fx:id="retour" layoutX="412.0" layoutY="28.0" mnemonicParsing="false" prefWidth="85.0" text="Retour" />
+            <Button fx:id="map" layoutX="416.0" layoutY="108.0" mnemonicParsing="false" text="Détails" />
+            <Button fx:id="verif_prix" layoutX="416.0" layoutY="150.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Prix" />
       </children>
     </Pane>
   </children>
