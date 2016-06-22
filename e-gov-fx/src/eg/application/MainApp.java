@@ -151,6 +151,7 @@ public class MainApp extends Application {
 	 *            the person object to be edited
 	 * @return true if the user clicked OK, false otherwise.
 	 */
+	
 	public boolean showPersonEditDialog(Person person,boolean isEdit) {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.

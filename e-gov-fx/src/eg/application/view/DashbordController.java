@@ -1,9 +1,16 @@
 package eg.application.view;
 
 import eg.application.MainApp;
+import eg.application.MapApp;
 import eg.application.NotifClient;
+import gov.esprit.service.abonnement.AbonnementServiceRemote;
+import io.uploader.drive.DriveUploader;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.websocket.DeploymentException;
 import javafx.fxml.FXML;
@@ -37,6 +44,8 @@ public class DashbordController  {
 	private Button btn_logout;
 	@FXML
 	private Button gestionuser;
+	@FXML
+	private Button upload;
 	@FXML
 	private TextArea output_textarea;
 	@FXML
@@ -214,47 +223,25 @@ public class DashbordController  {
 			
 		});
 		
+		upload.setOnAction(event->{
 			
+		/*	new Thread() {
+		         @Override
+		         public void run() {
+		             javafx.application.Application.launch(DriveUploader.class);
+		         }
+		     }.start();
+		     DriveUploader map = new DriveUploader();*/
+			
+		     
+		     System.exit(0);
+		    
+		    
+			
+		});	
 		}
 	
-	
-	/*Startup
-	class verifierNotif extends Service{
-		private TableView table;
-		private CountDownLatch messageLatch = null;
-		
-		public verifierNotif(TableView table) {
-			super();
-			this.table = table;
-		}
 
-		@Override
-		protected Task createTask() {
-			 Task<Void> task = new Task<Void>() {
-				@Override
-				 protected Void call() throws Exception{
-					messageLatch = new CountDownLatch(1);
-					try {
-                        URI clientURI = new URI("ws://localhost:8080/e-gov-web/notif");
-//            ClientContainer cliContainer = ContainerProvider.getClientContainer();
-                        ClientManager cliContainer = org.glassfish.tyrus.client.ClientManager.createClient();
- 
-                        ClientEndpointConfiguration clientConfig = new DefaultClientConfiguration();
-                        cliContainer.connectToServer(new NotifClient(table), clientURI);
-                        messageLatch.await(1, TimeUnit.SECONDS);
-                    } catch (DeploymentException | URISyntaxException | InterruptedException ex) {
-                        Logger.getLogger(DashbordController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-					 return null;
-				}
-				 };
-			 
-			return task;
-		}
-
-	}
-
-*/
 	
 
 }
