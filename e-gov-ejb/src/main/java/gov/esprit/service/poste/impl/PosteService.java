@@ -2,7 +2,6 @@ package gov.esprit.service.poste.impl;
 
 import java.util.Date;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -19,7 +18,7 @@ import gov.esprit.exception.EgovException;
 import gov.esprit.service.citoyen.CitoyenServiceRemote;
 import gov.esprit.service.poste.PosteServiceLocal;
 import gov.esprit.service.poste.PosteServiceRemote;
-import javafx.collections.ObservableList;
+
 
 
 @Stateless
@@ -127,7 +126,9 @@ public class PosteService implements PosteServiceRemote, PosteServiceLocal {
 	@Override
 	public List<Compte> findAll() {
 		
-		Query query = entityManager.createNativeQuery("select * from Compte");
+		Query query = entityManager.createNativeQuery("select c from Compte");
 		return query.getResultList();
 	}
+	
+	
 }

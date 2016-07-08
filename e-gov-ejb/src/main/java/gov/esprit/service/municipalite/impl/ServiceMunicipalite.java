@@ -8,11 +8,8 @@ import gov.esprit.exception.EgovException;
 import gov.esprit.service.citoyen.CitoyenServiceLocal;
 import gov.esprit.service.municipalite.ServiceMunicipaliteLocal;
 import gov.esprit.service.municipalite.ServiceMunicipaliteRemote;
-
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -50,7 +47,7 @@ public class ServiceMunicipalite implements ServiceMunicipaliteRemote, ServiceMu
 		mariee = citoyenservice.findByCin(cin2);
 
 		if (mariee.getSex() != mari.getSex()) {
-			if ((mari.getCivilite() == Civilite.CELIBATAIRE) && (mariee.getCivilite() == Civilite.CELIBATAIRE)) {
+			if ((mari.getCivilite() != Civilite.MARIE) && (mariee.getCivilite() != Civilite.MARIE)) {
 				System.out.println("oooo");
 				ContratMariage contrat = new ContratMariage();
 				contrat.setDate(date);
