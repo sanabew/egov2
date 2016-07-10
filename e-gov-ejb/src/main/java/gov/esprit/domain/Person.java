@@ -49,6 +49,15 @@ public class Person implements Serializable {
 		return this.id;
 	}
 
+	public Person(String firstName, String lastName, String fonction, String login, String motDePasse) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.fonction = fonction;
+		this.login = login;
+		this.motDePasse = motDePasse;
+	}
+
 	public Person(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;

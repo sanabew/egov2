@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ui:include src="leftMenu.xhtml" />
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<ui:insert name="content" />
+				<h:form>
+					<h1>Welcome <h:outputText value=" #{auth.person.firstName}" /></h1>
+	
+					<h:commandLink action="#{auth.doLogout()}" value="Logout"></h:commandLink>
+				</h:form>
+
+				<p>Le Lorem Ipsum est simplement du faux texte employé dans la
+					composition et la mise en page avant impression. Le Lorem Ipsum est
+					le faux texte standard de l'imprimerie depuis les années 1500,
+					quand un peintre anonyme assembla ensemble des morceaux de texte
+					pour réaliser un livre spécimen de polices de texte. Il n'a pas
+					fait que survivre cinq siècles, mais s'est aussi adapté à la
+					bureautique informatique, sans que son contenu n'en soit modifié.
+					Il a été popularisé dans les années 1960 grâce à la vente de
+					feuilles Letraset contenant des passages du Lorem Ipsum, et, plus
+					récemment, par son inclusion dans des applications de mise en page
+					de texte, comme Aldus PageMaker.</p>
+			</div>
+		</div>
+	</div>
+</ui:composition>
+

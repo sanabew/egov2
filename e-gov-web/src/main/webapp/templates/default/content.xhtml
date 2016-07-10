@@ -6,22 +6,9 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ui:include src="leftMenu.xhtml" />
-			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="col-sm-12 main">
 				<ui:insert name="content" />
-				<h:form>
-					<h:panelGrid columns="2">
-						<h:outputText value="Login" />
-						<h:inputText value="" />
-						<h:outputText value="Password" />
-						<h:inputSecret value="" />
-						<h:commandButton value="sign in" />
-					</h:panelGrid>
-
-
-				</h:form>
+				Welcom in front page egov
 			</div>
 		</div>
 	</div>
