@@ -1,0 +1,57 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ui:include src="leftMenu.xhtml" />
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<ui:insert name="content" />
+				<h:body>
+					<h:form>
+						<h:commandLink action="AddUser?faces-redirect=true"
+							value="ADD NEW USER" />
+					</h:form>
+					<h2>List of available users</h2>
+					<hr />
+					<h:dataTable value="#{personCrudBean.persons}" var="a">
+						<f:facet name="header">
+							<h:outputText
+								value=" (#{personCrudBean.persons.size()})  User(s)" />
+						</f:facet>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="ID" />
+							</f:facet>
+							<h:outputText value="#{a.id}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="NAME" />
+							</f:facet>
+							<h:outputText value="#{a.firstName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="LAST NAME" />
+							</f:facet>
+							<h:outputText value="#{a.lastName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">
+								<h:outputText value="Role" />
+							</f:facet>
+							<h:outputText value="#{a.fonction}" />
+						</h:column>
+					</h:dataTable>
+				</h:body>
+			</div>
+		</div>
+	</div>
+</ui:composition>
+

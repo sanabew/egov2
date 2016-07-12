@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ui:include src="leftMenu.xhtml" />
+			</div>
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<ui:insert name="content" />
+				<h:body>
+					<h:form>
+						<h:commandLink action="list?faces-redirect=true"
+							value="ALL USER(S)" />
+					</h:form>
+					<h2>Add user</h2>
+					<hr />
+					<h:form>
+						<h:panelGrid columns="2">
+
+							<h:outputText value="First Name:" />
+							<h:inputText value="#{personCrudBean.name}" />
+							<h:outputText value="Last Name:" />
+							<h:inputText value="#{personCrudBean.lastName}" />
+							<h:outputText value="Role:" />
+							<h:selectOneListbox value="#{personCrudBean.fonction}">
+								<f:selectItem itemValue="AGENT_MUNICIPALITE"
+									itemLabel="AGENT_MUNICIPALITE" />
+								<f:selectItem itemValue="AGENT_MIN_INT"
+									itemLabel="AGENT_MIN_INT" />
+								<f:selectItem itemValue="AGENT_ATT" itemLabel="AGENT_ATT" />
+								<f:selectItem itemValue="AGENT_STEG" itemLabel="AGENT_STEG" />
+								<f:selectItem itemValue="AGENT_SONEDE" itemLabel="AGENT_SONEDE" />
+								<f:selectItem itemValue="AGENT_MIN_TRANS"
+									itemLabel="AGENT_MIN_TRANS" />
+								<f:selectItem itemValue="AGENT_MIN_JUST"
+									itemLabel="AGENT_MIN_JUST" />
+								<f:selectItem itemValue="ADMIN" itemLabel="ADMIN" />
+
+							</h:selectOneListbox>
+
+
+							<h:outputText value="Login:" />
+							<h:inputText value="#{personCrudBean.login}" />
+							<h:outputText value="Password:" />
+							<h:inputSecret value="#{personCrudBean.motDePasse}" />
+							<h:commandButton class="btn btn-danger"
+								action="#{personCrudBean.doAdd}" value="add" />
+						</h:panelGrid>
+					</h:form>
+				</h:body>
+			</div>
+		</div>
+	</div>
+</ui:composition>
+

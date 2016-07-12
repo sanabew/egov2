@@ -45,8 +45,6 @@ public class DashbordController  {
 	@FXML
 	private Button gestionuser;
 	@FXML
-	private Button upload;
-	@FXML
 	private TextArea output_textarea;
 	@FXML
 	private Button send;
@@ -86,13 +84,13 @@ public class DashbordController  {
 		output_textarea.appendText("Ajourd'hui le :" + laDateDuJour);
 		}*/
 	
-		final NotifClient notifclien = new NotifClient(output_textarea);
+	/*	final NotifClient notifclien = new NotifClient(output_textarea);
         
 		output_textarea.setEditable(false);
 		
 		output_textarea.setOnMouseClicked(event->{
 			output_textarea.setStyle("-fx-border-color: black ; -fx-border-width: 2px ;");
-		});
+		});*/
 		
 		btn_logout.setOnAction((event) -> {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -213,35 +211,16 @@ public class DashbordController  {
 		send.setOnAction((event) -> {
 		
 			
-				try {
+		/*		try {
 					notifclien.sendNotification(saisie_notif.getText());
 					
 				} catch (Exception e) {
 					e.printStackTrace();
-				}
+				}*/
 
 			
 		});
-		
-		upload.setOnAction(event->{
-			
-		/*	new Thread() {
-		         @Override
-		         public void run() {
-		             javafx.application.Application.launch(DriveUploader.class);
-		         }
-		     }.start();
-		     DriveUploader map = new DriveUploader();*/
-			
-		     
-		     System.exit(0);
-		    
-		    
-			
-		});	
-		}
-	
 
-	
+		}
 
 }
