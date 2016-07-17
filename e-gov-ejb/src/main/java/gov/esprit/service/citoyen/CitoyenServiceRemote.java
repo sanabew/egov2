@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.ejb.Remote;
 
 import gov.esprit.domain.Citoyen;
+import gov.esprit.domain.Person;
 import gov.esprit.enums.Gouvernerat;
 import gov.esprit.exception.EgovException;
 
@@ -17,5 +18,8 @@ public interface CitoyenServiceRemote {
 	
 	public Citoyen findByNomAndPrenomAndDateAndGouvernerat(String nom, String prenom, Gouvernerat gouvernerat, Date date)
 			throws EgovException;
+	public	Citoyen authentificate(String login,String pwd);
+
+	void update(Citoyen citoyen);
 
 }

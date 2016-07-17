@@ -41,7 +41,21 @@ public class Citoyen implements Serializable {
 	private Citoyen pere;
 	private Citoyen mere;
 	private Gouvernerat gouvernerat;
+	private String login;
+	private String motDePasse;
 	
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
+	public String getMotDePasse() {
+		return motDePasse;
+	}
+	public void setMotDePasse(String motDePasse) {
+		this.motDePasse = motDePasse;
+	}
 	private List<Permis> permis;
 	private Passeport passeport;
 	
