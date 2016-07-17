@@ -27,12 +27,13 @@ public class AjoutCitoyensTest {
 		Citoyen citoyen4 = new Citoyen();
 		
 		citoyen1.setCin("1");
-		citoyen1.setNom("ben ali");
-		citoyen1.setPrenom("souha");
+		citoyen1.setNom("bi");
+		citoyen1.setPrenom("bi");
 		citoyen1.setSex(Sex.FEMME);
 		citoyen1.setCivilite(Civilite.CELIBATAIRE);
+		citoyen1.setLogin("bi");
+		citoyen1.setMotDePasse("bi");
 		
-	
 	
 		citoyen.setNom("ben salah");
 		citoyen.setPrenom("asma");

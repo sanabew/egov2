@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	<div class="container-fluid">
+
+		<ui:insert name="content" />
+
+		<div class="row">
+			
+			<div class="col-sm-3 col-md-2 sidebar">
+				<ui:include src="leftMenu.xhtml" />
+			</div>
+			
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<ui:insert name="content" />
+				<ui:define name="pageTitle">Citoyen</ui:define>
+
+				<h:form>
+					<h1>Welcome <h:outputText value=" #{authcitoyen.person.nom}" /></h1>
+	
+					<h:commandLink action="#{authcitoyen.doLogout()}" value="Logout"></h:commandLink>
+				</h:form>
+				
+				
+				
+			</div>
+		</div>
+
+
+
+	</div>
+</ui:composition>
+
